@@ -3,7 +3,7 @@
 
 const container = document.querySelector(".data-container")
 
-function generateBlocks(num = 10) {
+function generateBlocks(num = 15) {
     if (num && typeof num !== "number") {
         alert("First argument must be a type of number")
         return
@@ -76,5 +76,6 @@ async function bubbleSort(delay = 100) {
         blocks[blocks.length - i - 1].style.backgroundColor = "#13CE66";
     }
 }
+
 generateBlocks();
 bubbleSort();
