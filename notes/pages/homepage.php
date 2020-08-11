@@ -1,3 +1,8 @@
+<?php
+include("functions/display_functions.php")
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +10,12 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
-     <link rel="stylesheet" href="./css/style.css">
+     <link rel="stylesheet" href="./css/homepage.css">
      <title>Homepage</title>
 </head>
 
 <body>
-     <nav>
+     <!-- <nav>
           <div class="logo">Algo <span>Visualization</span></div>
 
           <label for="btn" class="icon">
@@ -63,8 +68,8 @@
                     <a href="#">More</a>
                     <input type="checkbox" id="btn-4">
                     <ul>
-                         <li><a href="#">Login</a></li>
-                         <li><a href="#">About</a></li>
+                         <li><a href="./templates/authentication.php">Login</a></li>
+                         <li><a href="./templates/about.php">About</a></li>
                     </ul>
                </li>
 
@@ -72,7 +77,9 @@
                <li><a href="#">Bookmarks</a></li>
 
           </ul>
-     </nav>
+     </nav> -->
+
+     <?php display_header(); ?>
      <br>
      <h1 class="container"><i class="fas fa-graduation-cap"></i> Explore Algorithms</h1>
 
