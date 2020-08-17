@@ -12,8 +12,9 @@ include('../config/db.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Algo Visualization</title>
 	<script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
-
 	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+	<link rel="icon" href="../images/logo.png">
+
 
 	<link rel="stylesheet" href="../css/homepage.css">
 	<link rel="stylesheet" href="../css/tutorial-content.css">

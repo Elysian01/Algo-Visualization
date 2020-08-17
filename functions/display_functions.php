@@ -3,6 +3,38 @@
 session_start();
 include("helper_functions.php");
 
+
+function print_cards($id)
+{
+     global $con;
+
+     $query = "select * from algo where grp_id = $id";
+
+     $run_query = mysqli_query($con, $query);
+
+     while ($row = mysqli_fetch_array($run_query)) {
+          $name = $row['name'];
+          // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
+
+          echo "
+          <div class='card'>
+            <img class='card-image' src='../images/sort2.gif' alt='Sorting image'>
+            <div class='container'>
+                <div class='card-title'>
+                    <h2>$name Algorithms</h2>
+                </div>
+                <div class='card-buttons'>
+                    <button class='btn-primary'><a href='#'>Tutorials</a></button>
+                    <button class='btn-danger'>Visualize</button>
+                </div>
+            </div>
+            <br>
+        </div>
+     ";
+     }
+}
+
+
 function display_header()
 {
 
