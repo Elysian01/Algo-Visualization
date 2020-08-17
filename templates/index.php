@@ -1,6 +1,6 @@
 <?php
-include("functions/display_functions.php");
-include("config/db.php");
+include("../functions/display_functions.php");
+include("../config/db.php");
 ?>
 
 <!DOCTYPE html>
@@ -10,12 +10,12 @@ include("config/db.php");
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
-     <link rel="stylesheet" href="./css/homepage.css">
+     <link rel="stylesheet" href="../css/homepage.css">
      <title>Homepage</title>
 </head>
 
 <body>
-     
+
      <?php display_header(); ?>
 
      <br>
@@ -24,7 +24,7 @@ include("config/db.php");
      <br>
      <div class="card-deck">
           <div class="card">
-               <img class="card-image" src="./images/sort2.gif" alt="Sorting image">
+               <img class="card-image" src="../images/sort2.gif" alt="Sorting image">
                <div class="container">
                     <div class="card-title">
                          <h2>Sorting Algorithms</h2>
@@ -37,7 +37,7 @@ include("config/db.php");
                <br>
           </div>
           <div class="card">
-               <img class="card-image" src="./images/pathfinding.gif" alt="Pathfinding image">
+               <img class="card-image" src="../images/pathfinding.gif" alt="Pathfinding image">
                <div class="container">
                     <div class="card-title">
                          <h2>Pathfinding Algorithms</h2>
@@ -50,7 +50,7 @@ include("config/db.php");
                <br>
           </div>
           <div class="card">
-               <img class="card-image" src="./images/avl.gif" alt="Searching image">
+               <img class="card-image" src="../images/avl.gif" alt="Searching image">
                <div class="container">
                     <div class="card-title">
                          <h2>Searching Algorithms</h2>
