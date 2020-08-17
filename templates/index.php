@@ -30,7 +30,7 @@ include("../config/db.php");
                          <h2>Sorting Algorithms</h2>
                     </div>
                     <div class="card-buttons">
-                         <button class="btn-primary">Tutorials</button>
+                         <button class="btn-primary"><a href="./tutorial_nav.php">Tutorials</a></button>
                          <button class="btn-danger">Visualize</button>
                     </div>
                </div>
