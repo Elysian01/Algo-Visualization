@@ -1,0 +1,127 @@
+
+.text-center{
+    text-align: center;
+}
+body{
+ background-color:white;   
+}
+.card {
+    width:50%;margin-left:25%;margin-right:25%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+  }
+  
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+  }
+  
+  .card-title {
+    margin-bottom: 0.5rem;
+  }
+  .lineargif{
+  width:50%;margin-left:25%;margin-right:25%;}
+
+  	/* Style the tab */
+      .tab {
+        overflow: hidden;
+        border: 1px solid #8fb7a5;
+        background-color: black;
+        width:50%;margin-left:25%;margin-right:25%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: space-evenly;
+    }
+
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+        background-color: black;
+        /* float: left; */
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        color: white;
+        font: 600 16px Lato, sans-serif;
+        margin:5px;
+        
+    }
+
+    /* Change background color of buttons on hover */
+    /* hover {
+        background-color: #61977e;
+    } */
+    .tab button:hover {
+ color: cyan;
+ border-radius: 5px;
+ box-shadow: 0 0 5px #33ffff,
+      0 0 10px #66ffff;
+}
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: cyan;
+        color:black;  border-radius: 5px;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        /* padding: 6px 12px;
+        border: 1px solid #426756;
+        border-top: none; */            width:50%;margin-left:25%;margin-right:25%;
+
+    }
+    #Python3{
+        display: block;
+    }
+  @media all and (max-width: 968px){
+  pre{
+      display: inline-block;
+      margin-left:1%;
+      margin-right:1%;         width:98%;
+    }
+    .lineargif{
+        width:80%;margin-left:10%;margin-right:10%;
+    height: 100px;}
+
+  .card{
+    width:80%;margin-left:10%;margin-right:10%;
+
+} ul {
+  display: block;
+}	.tab {
+    overflow: hidden;
+    border: 1px solid #8fb7a5;
+    background-color: black;
+    width:98%;
+    display: grid;
+    grid-template-columns: auto auto auto; margin-left:1%;
+    margin-right:1%;  
+    /* justify-content: space-evenly; */
+}
+.tabcontent {
+    display: none;
+    /* padding: 6px 12px;
+    border: 1px solid #426756;
+    border-top: none; */  margin-left:2%;
+    margin-right:2%;         width:98%;
+
+}.text-responsive{
+  font-size:1.0rem;
+  padding:1px;
+}
+}
