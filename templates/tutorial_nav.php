@@ -8,10 +8,11 @@ include("../config/db.php");
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="icon" href="../images/logo.png">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Algo Visualization</title>
 </head>
 
 <body>
@@ -19,95 +20,15 @@ include("../config/db.php");
 
     <br>
     <h1 class="container"><i class="fas fa-graduation-cap"></i> Explore Awesome Algorithms !</h1>
-
     <br>
-
     <div class="card-deck">
-        <div class="card">
-            <img class="card-image" src="../images/sort2.gif" alt="Sorting image">
-            <div class="container">
-                <div class="card-title">
-                    <h2>Sorting Algorithms</h2>
-                </div>
-                <div class="card-buttons">
-                    <button class="btn-primary"><a href="./tutorial_nav.php">Tutorials</a></button>
-                    <button class="btn-danger">Visualize</button>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-            <img class="card-image" src="../images/pathfinding.gif" alt="Pathfinding image">
-            <div class="container">
-                <div class="card-title">
-                    <h2>Pathfinding Algorithms</h2>
-                </div>
-                <div class="card-buttons">
-                    <button class="btn-primary">Tutorials</button>
-                    <button class="btn-danger">Visualize</button>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-            <img class="card-image" src="../images/avl.gif" alt="Searching image">
-            <div class="container">
-                <div class="card-title">
-                    <h2>Searching Algorithms</h2>
-                </div>
-                <div class="card-buttons">
-                    <button class="btn-primary">Tutorials</button>
-                    <button class="btn-danger">Visualize</button>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-            <img class="card-image" src="../images/avl.gif" alt="Searching image">
-            <div class="container">
-                <div class="card-title">
-                    <h2>Searching Algorithms</h2>
-                </div>
-                <div class="card-buttons">
-                    <button class="btn-primary">Tutorials</button>
-                    <button class="btn-danger">Visualize</button>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-            <img class="card-image" src="../images/avl.gif" alt="Searching image">
-            <div class="container">
-                <div class="card-title">
-                    <h2>Searching Algorithms</h2>
-                </div>
-                <div class="card-buttons">
-                    <button class="btn-primary">Tutorials</button>
-                    <button class="btn-danger">Visualize</button>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-            <img class="card-image" src="../images/avl.gif" alt="Searching image">
-            <div class="container">
-                <div class="card-title">
-                    <h2>Searching Algorithms</h2>
-                </div>
-                <div class="card-buttons">
-                    <button class="btn-primary">Tutorials</button>
-                    <button class="btn-danger">Visualize</button>
-                </div>
-            </div>
-            <br>
-        </div>
+        <?php
+        if (isset($_GET['grp_id'])) {
+            $id = $_GET['grp_id'];
+            print_cards($id);
+        }
+        ?>
     </div>
-
-
-
-
-
-
 
 </body>
 
