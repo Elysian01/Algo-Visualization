@@ -132,9 +132,9 @@ body {
         margin-left: 10%;
         margin-right: 10%;
     }
-    /* ul {
+    ul {
         display: block;
-    } */
+    }
     .tab {
         overflow: hidden;
         border: 1px solid #8fb7a5;
