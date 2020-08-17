@@ -15,13 +15,13 @@ include('../config/db.php');
 
 	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 
-	<link rel="stylesheet" href="../css/homepage.css">
+	<!-- <link rel="stylesheet" href="../css/homepage.css"> -->
 	<link rel="stylesheet" href="../css/tutorial-content.css">
 	<style>
 		@media (max-width: 968px) {
-			ul {
+			/* ul {
 				display: inline-block;
-			}
+			} */
 		}
 	</style>
 	<style>
@@ -35,7 +35,7 @@ include('../config/db.php');
 	<h1 class="text-center">Linear Search<img style="margin-bottom:-5px" src="https://img.icons8.com/doodle/40/000000/search--v1.png" /> </h1>
 	<br>
 	<h2 class="text-center text-responsive">In computer science, a linear search or sequential search is a method for finding an element within a list. It sequentially checks each element of the list until a match is found or the whole list has been searched.</h2>
-
+<br><br>
 	<div class="tutorial-card">
 		<div class="card-header" style="background-color:black;color:#33ffff">
 			<b><img style="margin-bottom:-6px;margin-right:4px" src="https://img.icons8.com/material/24/33ffff/dot-logo.png" />Explaination </b> </div>
