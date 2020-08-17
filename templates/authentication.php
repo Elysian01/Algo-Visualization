@@ -72,7 +72,21 @@ if (isset($_POST['login'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    $query = "select * from auth where email = '$email' and password = '$password'";
+    $ciphering = "AES-128-CTR";
+    $iv_length = openssl_cipher_iv_length($ciphering);
+    $options = 0;
+    $encryption_iv = '2345678910111211';
+    $encryption_key = "DE";
+
+    $encryption = openssl_encrypt(
+        $password,
+        $ciphering,
+        $encryption_key,
+        $options,
+        $encryption_iv
+    );
+
+    $query = "select * from auth where email = '$email' and password = '$encryption'";
     $run_query = mysqli_query($con, $query);
     $count_rows = mysqli_num_rows($run_query);
     if ($count_rows == 0) {
@@ -94,7 +108,21 @@ if (isset($_POST['register'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    $query = "insert into auth (name,email,password) values ('$name','$email','$password')";
+    $ciphering = "AES-128-CTR";
+    $iv_length = openssl_cipher_iv_length($ciphering);
+    $options = 0;
+    $encryption_iv = '2345678910111211';
+    $encryption_key = "DE";
+
+    $encryption = openssl_encrypt(
+        $password,
+        $ciphering,
+        $encryption_key,
+        $options,
+        $encryption_iv
+    );
+
+    $query = "insert into auth (name,email,password) values ('$name','$email','$encryption')";
     $run_register_query = mysqli_query($con, $query);
 
     if ($run_register_query) {
