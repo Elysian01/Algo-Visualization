@@ -54,6 +54,13 @@ function display_header()
           <input type='checkbox' id='btn'>
 
           <ul>
+          ";
+
+     if (!isset($_SESSION['user_id'])) {
+          echo "<li><a href='../templates/authentication.php'>Login</a></li>";
+     }
+
+     echo "
                <li>
                     <label for='btn-1' class='show'>Pathfinding + </label>
                     <a href='#'>Pathfinding</a>
@@ -83,24 +90,8 @@ function display_header()
      get_sort_algo();
      echo "
                     </ul>
-               </li>
-
-               <li>
-                    <label for='btn-4' class='show'>More + </label>
-                    <a href='#'>More</a>
-                    <input type='checkbox' id='btn-4'>
-                    <ul> ";
-
-     if (isset($_SESSION['user_id'])) {
-          echo "<li><a href='../functions/logout.php'>Logout</a></li>";
-     } else {
-          echo "<li><a href='../templates/authentication.php'>Login</a></li>";
-     }
-
-     echo "
-                         <li><a href='./templates/about.php'>About</a></li>
-                    </ul>
                </li>";
+
 
      if (isset($_SESSION['user_id'])) {
           echo "
@@ -112,6 +103,10 @@ function display_header()
                <li><a href='../templates/invalid_access.php'>Notes</a></li>
                <li><a href='../templates/invalid_access.php'>Bookmarks</a></li>
                ";
+     }
+
+     if (isset($_SESSION['user_id'])) {
+          echo "<li><a href='../functions/logout.php'>Logout</a></li>";
      }
 
      echo "</ul></nav>";
