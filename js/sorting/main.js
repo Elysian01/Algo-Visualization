@@ -26,7 +26,7 @@ function generate_array() {
         bars[i] = document.createElement("div");
         main_cont.appendChild(bars[i]);
         margin_size = 0.1;
-        bars[i].style = " margin:1% " + margin_size + "%; background-color:black; width:" + (100 / array_size - (5 * margin_size)) + "%; height:" + (random_array[i]) + "%;";
+        bars[i].style = " margin:1% " + margin_size + "%; background-color:black; width:" + (100 / array_size - (5 * margin_size)) + "%; height:" + (random_array[i]) + "%; ";
     }
 }
 
