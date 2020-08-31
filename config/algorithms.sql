@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2020 at 07:11 AM
+-- Generation Time: Aug 31, 2020 at 11:36 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -46,22 +46,21 @@ CREATE TABLE `algo` (
 --
 
 INSERT INTO `algo` (`algo_id`, `grp_id`, `name`, `definition`, `image`, `explanation`, `python`, `cpp`, `java`, `links`) VALUES
-(1, 1, 'BFS', '', '', '', '', '', '', ''),
-(2, 1, 'DFS', '', '', '', '', '', '', ''),
-(3, 1, 'Dijkstra', '', '', '', '', '', '', ''),
-(4, 1, 'A star', '', '', '', '', '', '', ''),
-(7, 1, 'Bidirectional', '', '', '', '', '', '', ''),
-(9, 2, 'Linear', '', '', '', '', '', '', ''),
-(10, 2, 'Bubble', '', '', '', '', '', '', ''),
-(11, 2, 'Selection', '', '', '', '', '', '', ''),
-(12, 2, 'Insertion', '', '', '', '', '', '', ''),
-(13, 2, 'Merge', '', '', '', '', '', '', ''),
-(14, 2, 'Quick', '', '', '', '', '', '', ''),
-(15, 2, 'Heap', '', '', '', '', '', '', ''),
-(23, 3, 'Linear', '', '', '', '', '', '', ''),
-(24, 3, 'Jump', '', '', '', '', '', '', ''),
-(25, 3, 'Binary', '', '', '', '', '', '', ''),
-(26, 3, 'Exponential', '', '', '', '', '', '', '');
+(1, 1, 'BFS', '', 'bfs.gif', '', '', '', '', ''),
+(2, 1, 'DFS', '', 'dfs.gif', '', '', '', '', ''),
+(3, 1, 'Dijkstra', '', 'dijkstra2.gif', '', '', '', '', ''),
+(4, 1, 'A star', '', 'astar2.gif', '', '', '', '', ''),
+(7, 1, 'Greedy', '', 'best.gif', '', '', '', '', ''),
+(10, 2, 'Bubble', '', 'bubble.gif', '', '', '', '', ''),
+(11, 2, 'Selection', '', 'selection.gif', '', '', '', '', ''),
+(12, 2, 'Insertion', '', 'insertion.gif', '', '', '', '', ''),
+(13, 2, 'Merge', '', 'merge.gif', '', '', '', '', ''),
+(14, 2, 'Quick', '', 'quick.gif', '', '', '', '', ''),
+(15, 2, 'Heap', '', 'heap.gif', '', '', '', '', ''),
+(23, 3, 'Linear', '', 'linear.gif', '', '', '', '', ''),
+(24, 3, 'Jump', '', 'jump.gif', '', '', '', '', ''),
+(25, 3, 'Binary', '', 'binary.gif', '', '', '', '', ''),
+(26, 3, 'Exponential', '', 'exponent.gif', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -81,7 +80,7 @@ CREATE TABLE `auth` (
 --
 
 INSERT INTO `auth` (`user_id`, `name`, `email`, `password`) VALUES
-(2, 'Abhishek', 'admin@gmail.com', 'admin');
+(3, 'Abhishek', 'admin@gmail.com', 'm8bf5+Y=');
 
 --
 -- Indexes for dumped tables
@@ -113,7 +112,7 @@ ALTER TABLE `algo`
 -- AUTO_INCREMENT for table `auth`
 --
 ALTER TABLE `auth`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -17,8 +17,6 @@ function checkSearchAlredyImplemented() {
 function setSize(windowSize) {
 
     if (windowSize.matches) {
-        console.log(window.innerWidth);
-        console.log(window.innerHeight);
         canvas.width = "780";
         canvas.height = "500";
         columns = 28;
@@ -26,6 +24,7 @@ function setSize(windowSize) {
         endY = 20;
         start = tiles[startY][startX];
         tiles[12][startX].state = "e";
+        tiles[30][endX].state = "e";
         end = tiles[endY][endX];
         drawStartAndEnd();
         // rows = 50;
