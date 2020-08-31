@@ -14,11 +14,12 @@ function print_cards($id)
 
      while ($row = mysqli_fetch_array($run_query)) {
           $name = $row['name'];
+          $image = $row['image'];
           // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
 
           echo "
           <div class='card'>
-            <img class='card-image' src='../images/sort2.gif' alt='Sorting image'>
+            <img class='card-image' src='../images/preview/$image' alt='Sorting image'>
             <div class='container'>
                 <div class='card-title'>
                     <h2>$name Algorithms</h2>
