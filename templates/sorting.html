@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/sorting.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+
+
+
+
+
+
+
+
+
+
+            <div class="array-inputs">
+                <p>Size of the array:</p>
+                <input id="arr_size" type="range" min=20 max=150 step=1 value=20>
+                <p>Speed of the algorithm:</p>
+                <input id="arr_speed" type="range" min=1 max=5 step=1 value=3>
+                <button id="arr_generate">Reset Array!</button>
+            </div>
+            <div class="header_right">
+                <p class="nav-heading">SORTING ALGORITHMS</p>
+                <div class="algos">
+                    <button>Bubble</button>
+                    <button>Selection</button>
+                    <button>Insertion</button>
+                    <button>Merge</button>
+                    <button>Quick</button>
+                    <button style="margin-right: 0px;">Heap</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+
+        <div id="Info_Cont1">
+            <p></p>
+        </div>
+
+        <div id="array_container"></div>
+
+        <div id="Info_Cont2">
+            <p></p>
+        </div>
+
+    </section>
+
+
+
+    <script src="../js/sorting/main.js"></script>
+    <script src="../js/sorting/visualization.js"></script>
+    <script src="../js/sorting/bubble.js"></script>
+
+</body>
+
+</html>
