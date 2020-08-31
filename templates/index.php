@@ -45,7 +45,7 @@ include("../config/db.php");
                     </div>
                     <div class="card-buttons">
                          <button class="btn-primary"><a href="./tutorial_nav.php?grp_id=1">Tutorials</a></button>
-                         <button class="btn-danger">Visualize</button>
+                        <button class="btn-danger">Visualize</button>
                     </div>
                </div>
                <br>
@@ -58,7 +58,7 @@ include("../config/db.php");
                     </div>
                     <div class="card-buttons">
                          <button class="btn-primary"><a href="./tutorial_nav.php?grp_id=3">Tutorials</a></button>
-                         <button class="btn-danger">Visualize</button>
+                         <a href="search.html"> <button class="btn-danger">Visualize</button></a>
                     </div>
                </div>
                <br>
