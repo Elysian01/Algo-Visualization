@@ -32,7 +32,7 @@ include("../config/db.php");
                     </div>
                     <div class="card-buttons">
                          <button class="btn-primary"><a href="./tutorial_nav.php?grp_id=2">Tutorials</a></button>
-                         <button class="btn-danger">Visualize</button>
+                         <a href = "sorting.html"><button class="btn-danger">Visualize</button></a>
                     </div>
                </div>
                <br>
