@@ -10,6 +10,14 @@ function print_cards($id)
 
      $query = "select * from algo where grp_id = $id";
 
+     if ($id == 1) {
+          $link = "./pathfinding.html";
+     } elseif ($id == 2) {
+          $link = "./sorting.html";
+     } else {
+          $link = "./search.html";
+     }
+
      $run_query = mysqli_query($con, $query);
 
      while ($row = mysqli_fetch_array($run_query)) {
@@ -22,11 +30,11 @@ function print_cards($id)
             <img class='card-image' src='../images/preview/$image' alt='Sorting image'>
             <div class='container'>
                 <div class='card-title'>
-                    <h2>$name Algorithms</h2>
+                    <h2>$name Algorithm</h2>
                 </div>
                 <div class='card-buttons'>
                     <button class='btn-primary'><a href='#'>Tutorials</a></button>
-                    <button class='btn-danger'>Visualize</button>
+                    <a href='$link'><button class='btn-danger'>Visualize</button></a>
                 </div>
             </div>
             <br>
