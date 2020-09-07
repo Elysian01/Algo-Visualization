@@ -2,15 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Visualizer</title>
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
     </style>
     <link rel="icon" href="../images/logo.png" />
-    <link rel="stylesheet" type="text/css" href="../css/searching.css">
-
+    <link rel="stylesheet" type="text/css" href="../css/searching.css" />
 </head>
 
 <body>
@@ -27,94 +26,36 @@
 
         <ul>
             <li>
-                <a href="index.php"><button id="clear">HOME</button></a>
-            </li>
-            <li>
-                <a href="#">
-                    <select name="algo" id="algo">
-                        <option value="" disabled selected>CHOOSE ALGORITHM</option>
-                        <option value="">
-                            Linear Search
-                        </option>
-                        <option value="bfs">
-                            JUMP SEARCH
-                        </option>
-                        <option value="dfs">
-                            BINARY SEARCH
-                        </option>
+                <a href="index.php"><button id="clear">HOME</button></a
+					>
+				</li>
+				<li>
+					<a href="#">
+						<select name="algo" id="algo">
+							<option value="" disabled selected>
+								CHOOSE ALGORITHM
+							</option>
+							<option value="">Linear Search</option>
+							<option value="bfs">JUMP SEARCH</option>
+							<option value="dfs">BINARY SEARCH</option>
 
-<<<<<<< HEAD
-    <ul>
-        <li>
-            <a href="#">
-                <select name="algo" id="algo" onchange="algoSelected()">
-                    <option value="" disabled selected>
-                        CHOOSE ALGORITHM
-                    </option>
-                    <option value="linear">
-                        LINEAR SEARCH
-                    </option>
-                    <option value="jump">
-                        JUMP SEARCH
-                    </option>
-
-                    <option value="binary">
-                        BINARY SEARCH
-                    </option>
-                    <option value="exponent">
-                        EXPONENT SEARCH
-                    </option>
-                </select>
-            </a>
-        </li>
-        <li>
-            <a>
-            <span>Size</span>
-            <input id="slider" type="range" min=10 max=70 step=1 value=41></a>
-        </li>
-=======
-                        <option value="dijkstra">EXPONENT SEAECH</option>
-
-                    </select>
-                </a>
+							<option value="dijkstra">
+								EXPONENT SEAECH
+							</option>
+						</select>
+					</a>
             </li>
             <li>
                 <a>
                     <span>Size</span>
-                    <input id="slider" type="range" min=10 max=70 step=1 value=41></a>
+                    <input id="slider" type="range" min="10" max="70" step="1" value="41" /></a>
             </li>
 
             <li>
                 <a>
                     <span>Speed</span>
-                    <input id="speed" type="range" min=1 max=10 step=1 value=8></a>
+                    <input id="speed" type="range" min="1" max="10" step="1" value="8" /></a>
             </li>
->>>>>>> ca8b1cdc775a095ad051ff445202663999a18184
-
-
-
-
-<<<<<<< HEAD
-    </ul>
-</nav>
-
-<div class="containers">
-    <br><br>
-    <h1 id="heading">Let's start searching ? </h1>
-    <br>
-<input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
-<br />
-<br />
-<button class="success btn-lg btn-shadow" id="search" onclick="search()">
-    Search
-</button>
-<button class="danger btn-lg btn-shadow" id="reset" onclick="update_array() ">
-    Reset Array
-</button>
-</div>
-<br><br>
-  <div class="container" id="x">
-=======
         </ul>
     </nav>
     <!-- <div class="container flex-row">
@@ -135,28 +76,23 @@
     </button>
 </div> -->
     <div class="containers">
-        <br><br>
-        <h1 style="font-weight: bolder;">Let's Start Searching ? </h1>
-        <br>
+        <br /><br />
+        <h1 style="font-weight: bolder">Let's Start Searching ?</h1>
+        <br />
         <input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
         <br />
         <br />
         <button class="success btn-lg btn-shadow" id="search" onclick="linearSearch()">
-            Search
-        </button>
+				Search
+			</button>
         <button class="danger btn-lg btn-shadow" id="reset" onclick="resetArray() ">
-            Reset Array
-        </button>
+				Reset Array
+			</button>
     </div>
-    <br><br>
-    <div class="container" id="x">
-
-    </div>
-    <br>
-    <div id="message" style="text-align:center">
->>>>>>> ca8b1cdc775a095ad051ff445202663999a18184
-
-    </div>
+    <br /><br />
+    <div class="container" id="x"></div>
+    <br />
+    <div id="message" style="text-align: center"></div>
     <script src="./../js/searching/ls.js"></script>
 </body>
 
