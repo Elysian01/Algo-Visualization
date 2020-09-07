@@ -26,19 +26,23 @@
     <ul>
         <li>
             <a href="#">
-                <select name="algo" id="algo">
-                    <option value=""  selected>
-                    Linear Search 
+                <select name="algo" id="algo" onchange="algoSelected()">
+                    <option value="" disabled selected>
+                        CHOOSE ALGORITHM
                     </option>
-                    <option value="bfs">
+                    <option value="linear">
+                        LINEAR SEARCH
+                    </option>
+                    <option value="jump">
                         JUMP SEARCH
                     </option>
-                    <option value="dfs">
+
+                    <option value="binary">
                         BINARY SEARCH
                     </option>
-
-                    <option value="dijkstra">EXPONENT SEAECH</option>
-
+                    <option value="exponent">
+                        EXPONENT SEARCH
+                    </option>
                 </select>
             </a>
         </li>
@@ -61,34 +65,18 @@
 
     </ul>
 </nav>
-<!-- <div class="container flex-row">
-    <label for="elements">No. of Elements</label>
-    <select name="elements" id="elements">
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-    </select>
-    <label for="speed">Speed</label>
-    <select name="speed" id="speed">
-        <option value="1200">Slow</option>
-        <option value="750">Medium</option>
-        <option value="500">Fast</option>
-    </select>
-    <button class="info btn-shadow" id="visualize" onclick="visualize() ">
-        Set
-    </button>
-</div> -->
+
 <div class="containers">
     <br><br>
-    <h1>Let's start searching ? </h1>
+    <h1 id="heading">Let's start searching ? </h1>
     <br>
 <input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
 <br />
 <br />
-<button class="success btn-lg btn-shadow" id="search" onclick="linearSearch()">
+<button class="success btn-lg btn-shadow" id="search" onclick="search()">
     Search
 </button>
-<button class="danger btn-lg btn-shadow" id="reset" onclick="resetArray() ">
+<button class="danger btn-lg btn-shadow" id="reset" onclick="update_array() ">
     Reset Array
 </button>
 </div>
