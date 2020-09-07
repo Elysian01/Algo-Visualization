@@ -252,10 +252,11 @@ function linearSearch() {
 function highlight(low, high, arrayBarss) {
 
   for (i = low; i <= high; i++) {
-
-    arrayBarss[i].style.backgroundColor = "#003b46";
+// 003b46
+    arrayBarss[i].style.backgroundColor = "#4e89ae";
     arrayBarss[i].style.transition = "100ms all";
-
+    // spanner[i + 4].style.backgroundColor = "rgb(91, 200, 172)";
+    // spanner[i+4].style.transition="100ms all";
   }
 }
 function removehighlight(arrayBarss) {
@@ -350,6 +351,8 @@ function jumpSearch(){
   let count=0;
   animate = [];
   const arrayBars = document.getElementsByClassName("l-array");
+  
+  const spanner = document.getElementsByTagName("span");
   const target = document.getElementById('searchKey').value;
   if (target == "") { return; }
   document.getElementById("message").innerHTML = `<h1></h1>`;
@@ -382,7 +385,7 @@ function jumpSearch(){
       setTimeout(() => {
         console.log("nf")
         removehighlight(arrayBars);
-        arrayBars[start].style.backgroundColor = "#003b46";
+        arrayBars[start].style.backgroundColor = "#4e89ae";
 }, i * ANIMATION_SPEED_SECONDS * 1000);}
 if(status==true){
   setTimeout(() => {
