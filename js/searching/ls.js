@@ -46,6 +46,7 @@ slider.oninput = function() {
 }
 
 function search() {
+<<<<<<< HEAD
     if (algorithm == "linear") {
         linearSearch();
     } else if (algorithm == "binary") {
@@ -55,6 +56,22 @@ function search() {
     } else {
         alert("CHOOSE AN ALGORITHM FIRST")
     }
+=======
+  if (algorithm == "linear") {
+    linearSearch();
+  } else if (algorithm == "binary") {
+    binarySearch()
+  } else if (algorithm == "jump") {
+    jumpSearch();
+  }else if (algorithm == "exponent") {
+    console.log("e")
+    exponentSearch();
+  }
+  else{
+    console.log("c")
+    alert("CHOOSE AN ALGORITHM FIRST")
+  }
+>>>>>>> 361598a567a602794684bc1302331599d3ee1910
 }
 
 speed.oninput = function() {
@@ -240,16 +257,151 @@ function linearSearch() {
 
 }
 
+function exponentSearch(){
+  animate=[];
+  const target = document.getElementById('searchKey').value;
+  if (target == "") { return; }
+  document.getElementById("message").innerHTML = `<h1></h1>`;
+  console.log(array)
+  const prevArray = document.getElementsByClassName("l-array");
+
+  for (let idx = 0; idx < prevArray.length; idx++) {
+    prevArray[idx].style.backgroundColor = "#1b1b1b";
+    prevArray[idx].classList.remove("growFind");
+    prevArray[idx].classList.remove("highlight");
+    // console.log(prevArray[idx])
+  }
+  var msg = "";
+  disabled();
+
+  const animations = exponentSearchanimate(array, target);
+  console.log(animations)
+  let count = 0;
+
+  const spanner = document.getElementsByTagName("span");
+  for (let i = 0; i < animations.length; i++) {
+    const [found, low, high, midPoint] = animations[i]
+    // console.log("s"+found,low,high,midPoint)
+    if(low!=undefined && high!==undefined && midPoint!==undefined){
+    const arrayBar = document.getElementsByClassName("l-array");
+    console.log(arrayBar)
+    const arrayBarss = document.getElementsByClassName("l-array");
+    // console.log(low, high)
+    const arrayelement = arrayBar[midPoint];
+    console.log("S"+arrayelement)
+    count++;
+    if (found && arrayelement!=undefined) {
+  
+      msg = `${target} found at index ${midPoint}`;
+      setTimeout(() => {
+        // arrayBox.style.backgroundColor = "rgb(91, 200, 172)";
+        // arrayBox.style.color= "black ";
+        // spanner[i+4].style.backgroundColor = "#003b46";
+        // spanner[i+4].style.color= "white ";
+
+        removehighlight(arrayBarss);
+        highlight(low, high, arrayBarss);
+
+        var delayInMilliseconds = 1000; //1 second
+
+        setTimeout(function () {
+          //your code to be executed after 1 second
+
+          removehighlight(arrayBarss);
+
+          arrayelement.classList.add("growFind")
+
+          arrayelement.classList.add("highlight")
+          arrayelement.style.backgroundColor = "rgb(91, 200, 172)";
+          document.getElementById("message").innerHTML = `<h1>${msg}</h1>`;
+
+        }, delayInMilliseconds);
 
 
+        // arrayBox.classList.add("growFind");
+        // arrayBox.classList.add("highlight");
+      }, (i) * ANIMATION_SPEED_SECONDS * 1000);
+
+    } else if (found == 0 && low == 0 && high == 0 && midPoint == 0) {
+      setTimeout(() => {
+        msg = "NOT FOUND !"
+        document.getElementById("message").innerHTML = `<h1>${msg}</h1>`;
+
+        removehighlight(arrayBarss);
+      }, i * ANIMATION_SPEED_SECONDS * 1000);
+    } else {
+      console.log(low, high); setTimeout(() => {
+      
+        removehighlight(arrayBarss);
+        highlight(low, high, arrayBarss);
+      
+      }, i * ANIMATION_SPEED_SECONDS * 1000);
+   
+    }}else{
+if(low==true){
+
+  var array_Barss = document.getElementsByClassName("l-array");
 
 
+  setTimeout(() => {
+    msg = `${target} found at index ${found}`;
+    document.getElementById("message").innerHTML = `<h1>${msg}</h1>`;
+  array_Barss[found].style.backgroundColor = "rgb(91, 200, 172)";
+  array_Barss[found].style.transition = "100ms all";
+}, i * ANIMATION_SPEED_SECONDS * 1000);
+
+return;
+}else{
+
+  var array_Barss = document.getElementsByClassName("l-array");
+  for (let idx = 0; idx < array_Barss.length; idx++) {
+  array_Barss[idx].style.backgroundColor = "#1b1b1b";
+  array_Barss[idx].classList.remove("growFind");
+  array_Barss[idx].classList.remove("highlight");
+    // console.log(prevArray[idx])
+  }
+  setTimeout(() => {
+  array_Barss[found].style.backgroundColor = "#4e89ae";
+  array_Barss[found].style.transition = "100ms all";
+}, i * ANIMATION_SPEED_SECONDS * 1000);
+ }  
+  
+
+  } enable();
+}}
+
+
+function exponentSearchanimate(array,target){
+  const n = array.length;
+  if (array[0] == target) {
+ 
+    animate.push([0,true])
+    return animate; }
+  let i=1;
+  while(i<n && array[i]<=target){
+    i=i*2;
+    if (i < n && array[i] < target) { 
+    animate.push([i]);
+  }
+
+    if(array[i]==target){
+      console.log("")
+
+       animate.push([i,true])
+      return animate;
+    }
+
+  }  
+  
+  return binarySearchanimate(array,target, i / 2, Math.min(i, n) );
+}
 
 
 
 
 //bs
 function highlight(low, high, arrayBarss) {
+<<<<<<< HEAD
 
     for (i = low; i <= high; i++) {
         // 003b46
@@ -258,6 +410,18 @@ function highlight(low, high, arrayBarss) {
         // spanner[i + 4].style.backgroundColor = "rgb(91, 200, 172)";
         // spanner[i+4].style.transition="100ms all";
     }
+=======
+  if(low!=undefined && high!==undefined && arrayBarss!=undefined ){
+  for (i = low; i <= high; i++) {
+// 003b46
+console.log("howww "+arrayBarss[i])
+if(arrayBarss[i]!=undefined){
+    arrayBarss[i].style.backgroundColor = "#4e89ae";
+    arrayBarss[i].style.transition = "100ms all";
+    // spanner[i + 4].style.backgroundColor = "rgb(91, 200, 172)";
+    // spanner[i+4].style.transition="100ms all";
+  }}}
+>>>>>>> 361598a567a602794684bc1302331599d3ee1910
 }
 
 function removehighlight(arrayBarss) {
@@ -270,6 +434,7 @@ function removehighlight(arrayBarss) {
 }
 
 function binarySearch() {
+<<<<<<< HEAD
     animate = [];
     const arrayBarss = document.getElementsByClassName("l-array");
     const target = document.getElementById('searchKey').value;
@@ -288,6 +453,73 @@ function binarySearch() {
     }
     var msg = "";
     disabled();
+=======
+  animate = [];
+  const arrayBarss = document.getElementsByClassName("l-array");
+  const target = document.getElementById('searchKey').value;
+  if (target == "") { return; }
+  document.getElementById("message").innerHTML = `<h1></h1>`;
+  console.log(array)
+  const prevArray = document.getElementsByClassName("l-array");
+
+  for (let idx = 0; idx < prevArray.length; idx++) {
+    prevArray[idx].style.backgroundColor = "#1b1b1b";
+    prevArray[idx].classList.remove("growFind");
+    prevArray[idx].classList.remove("highlight");
+    // console.log(prevArray[idx])
+  }
+  var msg = "";
+  disabled();
+
+  // const animations = linearSearchanimate(array, target);
+  const bsanimations = binarySearchanimate(array, target)
+  console.log(bsanimations);
+  let count = 0;
+
+  const spanner = document.getElementsByTagName("span");
+  for (let i = 0; i < bsanimations.length; i++) {
+    const [found, low, high, midPoint] = bsanimations[i]
+    const arrayBar = document.getElementsByClassName("l-array");
+    console.log(low, high)
+    const arrayelement = arrayBar[midPoint];
+    console.log("S"+arrayelement)
+    count++;
+    if (found) {
+      msg = `${target} found at index ${midPoint}`;
+      setTimeout(() => {
+        // arrayBox.style.backgroundColor = "rgb(91, 200, 172)";
+        // arrayBox.style.color= "black ";
+        // spanner[i+4].style.backgroundColor = "#003b46";
+        // spanner[i+4].style.color= "white ";
+
+        removehighlight(arrayBarss);
+        highlight(low, high, arrayBarss);
+
+        var delayInMilliseconds = 1000; //1 second
+
+        setTimeout(function () {
+          //your code to be executed after 1 second
+
+          removehighlight(arrayBarss);
+
+          arrayelement.classList.add("growFind")
+
+          arrayelement.classList.add("highlight")
+          arrayelement.style.backgroundColor = "rgb(91, 200, 172)";
+          document.getElementById("message").innerHTML = `<h1>${msg}</h1>`;
+
+        }, delayInMilliseconds);
+
+
+        // arrayBox.classList.add("growFind");
+        // arrayBox.classList.add("highlight");
+      }, (i) * ANIMATION_SPEED_SECONDS * 1000);
+
+    } else if (found == 0 && low == 0 && high == 0 && midPoint == 0) {
+      setTimeout(() => {
+        msg = "NOT FOUND !"
+        document.getElementById("message").innerHTML = `<h1>${msg}</h1>`;
+>>>>>>> 361598a567a602794684bc1302331599d3ee1910
 
     // const animations = linearSearchanimate(array, target);
     const bsanimations = binarySearchanimate(array, target)
@@ -314,6 +546,7 @@ function binarySearch() {
 
                 var delayInMilliseconds = 1000; //1 second
 
+<<<<<<< HEAD
                 setTimeout(function() {
                     //your code to be executed after 1 second
 
@@ -342,6 +575,69 @@ function binarySearch() {
         } else {
             console.log(low, high);
             setTimeout(() => {
+=======
+  } enable();
+}
+function jumpSearch(){
+  let count=0;
+  animate = [];
+  const arrayBars = document.getElementsByClassName("l-array");
+  
+  const spanner = document.getElementsByTagName("span");
+  const target = document.getElementById('searchKey').value;
+  if (target == "") { return; }
+  document.getElementById("message").innerHTML = `<h1></h1>`;
+  console.log(array)
+  const prevArray = document.getElementsByClassName("l-array");
+
+  for (let idx = 0; idx < prevArray.length; idx++) {
+    prevArray[idx].style.backgroundColor = "#1b1b1b";
+    prevArray[idx].classList.remove("growFind");
+    prevArray[idx].classList.remove("highlight");
+    // console.log(prevArray[idx])
+  }
+  var msg = "";
+  disabled();
+
+  // const animations = linearSearchanimate(array, target);
+  const jsanimations = jumpSearchanimate(array,target)
+  for (let i = 0; i < jsanimations.length; i++) {
+    const [start, end,  status] = jsanimations[i]
+    if(status===null){
+      setTimeout(() => {
+        removehighlight(arrayBars);
+
+      highlight(start, end, arrayBars);
+
+
+}, i * ANIMATION_SPEED_SECONDS * 1000);
+    }
+    if(status==false){
+      setTimeout(() => {
+        console.log("nf")
+        removehighlight(arrayBars);
+        arrayBars[start].style.backgroundColor = "rgb(78, 137, 174)";
+}, i * ANIMATION_SPEED_SECONDS * 1000);}
+if(status==true){
+  setTimeout(() => {
+msg=`Element found at ${start}`;
+document.getElementById("message").innerHTML = `<h1>${msg}</h1>`;
+    removehighlight(arrayBars);
+
+    arrayBars[start].style.backgroundColor = "rgb(91, 200, 172)";
+    arrayBars[start].classList.add("growFind");
+    arrayBars[start].classList.add("highlight");
+}, i * ANIMATION_SPEED_SECONDS * 1000);
+}
+if(start===0 && end===0 && status==0){
+  setTimeout(() => {
+    removehighlight(arrayBars);
+  msg=`No element found`;
+document.getElementById("message").innerHTML = `<h1>${msg}</h1>`;
+}, i * ANIMATION_SPEED_SECONDS * 1000);
+}
+   count++ }
+>>>>>>> 361598a567a602794684bc1302331599d3ee1910
 
                 removehighlight(arrayBarss);
                 highlight(low, high, arrayBarss);
@@ -503,8 +799,13 @@ function binarySearchanimate(array, target, low = 0, high = array.length - 1) {
     } else {
         animate.push([true, low, high, midPoint])
 
+<<<<<<< HEAD
     }
     console.log(animate)
     return animate;
+=======
+  }
+  return animate;
+>>>>>>> 361598a567a602794684bc1302331599d3ee1910
 
 }
