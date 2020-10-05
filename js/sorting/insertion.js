@@ -15,11 +15,11 @@ function Insertion_Sort() {
             div_update(bars[i], random_array[i], "red"); //Height update
             div_update(bars[i + 1], random_array[i + 1], "red"); //Height update
 
-            div_update(bars[i], random_array[i], "blue"); //Color update
+            div_update(bars[i], random_array[i], "#000080"); //Color update
             if (i == (j - 1)) {
                 div_update(bars[i + 1], random_array[i + 1], "yellow"); //Color update
             } else {
-                div_update(bars[i + 1], random_array[i + 1], "blue"); //Color update
+                div_update(bars[i + 1], random_array[i + 1], "#000080"); //Color update
             }
             i -= 1;
         }
