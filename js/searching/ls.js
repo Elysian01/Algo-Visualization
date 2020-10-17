@@ -322,6 +322,7 @@ function exponentSearch(){
       
         removehighlight(arrayBarss);
         highlight(low, high, arrayBarss);
+    
       
       }, i * ANIMATION_SPEED_SECONDS * 1000);
    
