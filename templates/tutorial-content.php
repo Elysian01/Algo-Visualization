@@ -26,13 +26,107 @@ include('../config/db.php');
 		}
 	</style>
 	<style>
-
+pre{
+	overflow:auto;
+}
 	</style>
 </head>
 
 <body>
 	<?php display_header(); ?>
+	<?php if (isset($_GET['id'])) {
+		$idno = $_GET['id'];
+		$sql = "SELECT * FROM algo where algo_id= '$idno' ";
+		$result = mysqli_query($con, $sql);
+		while ($row = mysqli_fetch_assoc($result)) {
+			echo '<br>
+			<h1 class="text-center">' . $row["name"] . '';
+if ($row["grp_id"] == 3) {
+				echo ' Search <img style="margin-bottom:-5px" src="https://img.icons8.com/doodle/40/000000/search--v1.png" />';} 
+elseif ($row["grp_id"] == 2) {
+echo ' Sorting  <img style="margin-bottom:-5px"  src="https://img.icons8.com/office/30/000000/numerical-sorting-21.png"/>';
+} 
+			else {
+				echo '';
+			}
+
+
+
+echo '</h1><br>
+<h2 class="text-center text-responsive" style="padding:5px;">' . $row["definition"] . '</h2>
+			<br><br>
+	<div class="tutorial-card">
+		<div class="card-header" style="background-color:black;color:#33ffff">
+			<b><img style="margin-bottom:-6px;margin-right:4px" src="https://img.icons8.com/material/24/33ffff/dot-logo.png" />Explaination </b> 
+		</div>
+	<div class="card-body">
+		
+		<p class="card-text">' ?>
+		
+
+		<?php echo '	' . $row["explaination"] . '
+		</p>
+	
+	</div>
+			</div> <img src=' . $row["image"] . ' class="lineargif">
+			<br>
+			<br>
+			<div class="tab">'; ?>
+
+	<button class="tablinks" onclick="openCity(event, 'Python3')">Python3</button>
+	<button class="tablinks" onclick="openCity(event, 'C++')">C++</button>
+	<button class="tablinks" onclick="openCity(event, 'JAVA')">JAVA</button>
+	</div>
+
+<?php echo '
+<div id="Python3" class="tabcontent ">
+	<pre class="prettyprint">' . $row["python"] . '
+	</pre>
+</div>
+
+<div id="C++" class="tabcontent">
+	<pre class="prettyprint" style="padding:0px">
+<code>
+	' . $row["cpp"] . '  
+</code>
+	</pre>
+</div>
+		
+<div id="JAVA" class="tabcontent">
+	<pre class="prettyprint">
+' . $row["java"] . ' 
+</pre>
 	<br>
+</div>
+	<br> ';
+		}
+	} ?>
+<script type="text/javascript">
+	function openCity(evt, cityName) {
+		// Declare all variables
+		var i, tabcontent, tablinks;
+
+		// Get all elements with class="tabcontent" and hide them
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+
+		// Get all elements with class="tablinks" and remove the class "active"
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+
+		// Show the current tab, and add an "active" class to the button that opened the tab
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+</script>
+</body>
+
+</html>
+<!-- <br>
 	<h1 class="text-center">Linear Search<img style="margin-bottom:-5px" src="https://img.icons8.com/doodle/40/000000/search--v1.png" /> </h1>
 	<br>
 	<h2 class="text-center text-responsive">In computer science, a linear search or sequential search is a method for finding an element within a list. It sequentially checks each element of the list until a match is found or the whole list has been searched.</h2>
@@ -60,8 +154,8 @@ include('../config/db.php');
 		<button class="tablinks" onclick="openCity(event, 'JAVA')">JAVA</button>
 	</div>
 
-	<!-- Tab content -->
-	<div id="Python3" class="tabcontent ">
+ Tab content -->
+<!-- <div id="Python3" class="tabcontent ">
 		<pre class="prettyprint">
 def search(arr, n, x): 
 
@@ -151,29 +245,4 @@ else
 </pre>
 		<br>
 	</div>
-	<br>
-	<script type="text/javascript">
-		function openCity(evt, cityName) {
-			// Declare all variables
-			var i, tabcontent, tablinks;
-
-			// Get all elements with class="tabcontent" and hide them
-			tabcontent = document.getElementsByClassName("tabcontent");
-			for (i = 0; i < tabcontent.length; i++) {
-				tabcontent[i].style.display = "none";
-			}
-
-			// Get all elements with class="tablinks" and remove the class "active"
-			tablinks = document.getElementsByClassName("tablinks");
-			for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
-			}
-
-			// Show the current tab, and add an "active" class to the button that opened the tab
-			document.getElementById(cityName).style.display = "block";
-			evt.currentTarget.className += " active";
-		}
-	</script>
-</body>
-
-</html>
+	<br> -->

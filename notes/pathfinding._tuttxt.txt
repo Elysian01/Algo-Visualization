@@ -1,0 +1,15 @@
+# BFS
+https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
+
+# DFS
+https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
+
+# BEST FIRST SEARCH
+https://www.mygreatlearning.com/blog/best-first-search-bfs/
+https://www.javatpoint.com/ai-informed-search-algorithms
+
+# A STAR
+https://www.geeksforgeeks.org/a-search-algorithm/
+
+# DIJKSTRA ALGORITHM 
+https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/

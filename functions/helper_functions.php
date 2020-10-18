@@ -1,5 +1,5 @@
 <?php
-
+ 
 include("../config/db.php");
 
 function get_search_algo()
@@ -12,8 +12,9 @@ function get_search_algo()
 
     while ($row = mysqli_fetch_array($run_query)) {
         $name = $row['name'];
+        $algoid = $row['algo_id'];
         // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-        echo "<li><a href='./tutorial-content.php'>$name</a></li>";
+        echo "<li><a href='./tutorial-content.php?id=$algoid'>$name</a></li>";
     }
 }
 
@@ -27,8 +28,9 @@ function get_sort_algo()
 
     while ($row = mysqli_fetch_array($run_query)) {
         $name = $row['name'];
+        $algoid = $row['algo_id'];
         // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-        echo "<li><a href='./tutorial-content.php'>$name</a></li>";
+        echo "<li><a href='./tutorial-content.php?id=$algoid'>$name</a></li>";
     }
 }
 
@@ -42,7 +44,8 @@ function get_pathfinding_algo()
 
     while ($row = mysqli_fetch_array($run_query)) {
         $name = $row['name'];
+        $algoid = $row['algo_id'];
         // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-        echo "<li><a href='./tutorial-content.php'>$name</a></li>";
+        echo "<li><a href='./tutorial-content.php?id=$algoid'>$name</a></li>";
     }
 }
