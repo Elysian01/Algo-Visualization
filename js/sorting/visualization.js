@@ -34,16 +34,16 @@ function div_update(main_cont, height, color) {
     }, c_delay += delay_time);
 }
 
-function enable_buttons() {
-    window.setTimeout(function() {
-        for (var i = 0; i < button_algos.length; i++) {
-            button_algos[i].classList = [];
-            button_algos[i].classList.add("button_unselected");
+// function enable_buttons() {
+//     window.setTimeout(function() {
+//         for (var i = 0; i < button_algos.length; i++) {
+//             button_algos[i].classList = [];
+//             button_algos[i].classList.add("button_unselected");
 
-            button_algos[i].disabled = false;
-            input_arr_size.disabled = false;
-            input_arr_gen.disabled = false;
-            input_arr_speed.disabled = false;
-        }
-    }, c_delay += delay_time);
-}
+//             button_algos[i].disabled = false;
+//             input_arr_size.disabled = false;
+//             input_arr_gen.disabled = false;
+//             input_arr_speed.disabled = false;
+//         }
+//     }, c_delay += delay_time);
+// }

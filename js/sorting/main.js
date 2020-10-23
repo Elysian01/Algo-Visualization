@@ -1,15 +1,11 @@
-//Accessing classes, ids, containers
-
 var input_arr_size = document.getElementById('arr_size'),
     array_size = input_arr_size.value;
 var input_arr_gen = document.getElementById("arr_generate");
 var input_arr_speed = document.getElementById("arr_speed");
-
-var button_algos = document.querySelectorAll(".algos button");
 var main_cont = document.getElementById("array_container");
 main_cont.style = "flex-direction:row";
 
-//Declaring variables
+// Declaring variables
 var random_array = [];
 var bars = [];
 var margin_size;
@@ -42,46 +38,49 @@ input_arr_size.oninput = function() {
     generate_array();
 }
 
-//Run the correct Algo out of the collection of algos
 
-for (var i = 0; i < button_algos.length; i++) {
-    button_algos[i].addEventListener("click", run_algo);
+function algoSelected() {
+    algorithm = document.getElementById("algo").value;
 }
 
-function disable_buttons() {
-    for (var i = 0; i < button_algos.length; i++) {
-        button_algos[i].classList = [];
-        button_algos[i].classList.add("button_locked");
-        button_algos[i].disabled = true;
-        input_arr_size.disabled = true;
-        input_arr_gen.disbaled = true;
-        input_arr_speed.disabled = true;
+function sort() {
+    if (algorithm == "bubble") {
+        disabled();
+        Bubble_Sort();
+        // enable();
+
+    } else if (algorithm == "selection") {
+        disabled();
+        Selection_Sort()
+    } else if (algorithm == "insertion") {
+        disabled();
+        Insertion_Sort();
+    } else if (algorithm == "merge") {
+        disabled();
+        Merge_Sort();
+    } else if (algorithm == "quick") {
+        disabled();
+        Quick_Sort();
+    } else if (algorithm == "heap") {
+        disabled();
+        Heap_Sort();
+    } else {
+        alert("CHOOSE AN ALGORITHM FIRST")
     }
 }
 
-function run_algo() {
-    disable_buttons();
+function disabled() {
 
-    this.classList.add("button_selected");
-    switch (this.innerHTML) {
-        case "Bubble":
-            Bubble_Sort();
-            break;
-        case "Selection":
-            Selection_Sort();
-            break;
-        case "Insertion":
-            Insertion_Sort();
-            break;
-        case "Merge":
-            Merge_Sort();
-            break;
-        case "Quick":
-            Quick_Sort();
-            break;
-        case "Heap":
-            Heap_Sort();
-            break;
+    sort.disabled = true;
+    input_arr_gen.disabled = true;
+    input_arr_size.disabled = true;
+    input_arr_speed.disabled = true;
+}
 
-    }
+function enable() {
+
+    sort.disabled = false;
+    input_arr_gen.disabled = false;
+    input_arr_size.disabled = false;
+    input_arr_speed.disabled = false;
 }
