@@ -1,14 +1,16 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: large;
-    font-weight: bold;
-    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background: #f2f2f2;
+}
 
-/* a {
+a {
     color: #fff;
     text-decoration: none;
 }
@@ -16,6 +18,24 @@
 nav {
     background: #1b1b1b;
     box-shadow: 5px 5px 4px #3d3c3c;
+    min-width: 1200px;
+}
+
+button,
+select {
+    color: white;
+    background-color: #1b1b1b;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    /* padding: 8px 15px; */
+}
+
+button:focus,
+select:focus {
+    outline: none;
 }
 
 nav:after {
@@ -65,372 +85,71 @@ nav ul li a:hover {
     box-shadow: 0 0 5px #33ffff, 0 0 10px #66ffff;
 }
 
-nav ul ul li a:hover {
-    box-shadow: none;
-}
-
-nav ul ul {
-    position: absolute;
-    top: 90px;
-    border-top: 3px solid cyan;
-    opacity: 0;
-    visibility: hidden;
-    transition: top .3s;
-}
-
-nav ul ul ul {
-    border-top: none;
-}
-
-nav ul li:hover>ul {
-    top: 70px;
-    opacity: 1;
-    visibility: visible;
-}
-
-nav ul ul li {
-    position: relative;
-    margin: 0px;
-    width: 150px;
-    float: none;
-    display: list-item;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-nav ul ul li a {
-    line-height: 50px;
-}
-
-nav ul ul ul li {
-    position: relative;
-    top: -60px;
-    left: 150px;
-}
-
-.show,
-.icon {
+.mobile-logo {
     display: none;
-} */
+}
 
-nav {
+
+/* @media only screen and (max-width: 1100px) {
+    .logo {
+        display: none;
+    }
+    .mobile-logo {
+        display: block;
+        background-color: #1b1b1b;
+        /* min-width: 1200px; */
+
+
+/* text-align: center;
+        border: none;
+        outline: none;
+    }
+    .mobile-logo span {
+        color: #66ffff;
+    } */
+
+.success {
     background-color: black;
-    background: black;
-    /* box-shadow: 5px 5px 4px #3d3c3c; */
-    color: aqua;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 30% 60%;
-    grid-template-columns: 30% 60%;
-    -webkit-column-gap: 10%;
-    column-gap: 10%;
-    padding: 0% 5%;
-}
-
-nav .array-inputs {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 60% 40%;
-    grid-template-columns: 60% 40%;
-    place-content: center;
-    padding: 5% 0%;
-}
-
-nav .array-inputs #arr_size {
-    padding: 5% 0%;
-}
-
-nav .array-inputs #arr_speed {
-    padding: 5% 0%;
-}
-
-nav .array-inputs #arr_generate {
-    background-color: transparent;
     border: none;
-    outline: none;
-    color: white;
-    padding: 4% 0% 0% 0%;
-    padding-left: 20%;
-}
-
-nav .array-inputs #arr_generate:hover {
+    /* color: black; */
+    color: #fff;
+    padding: 5px 5px 5px 15px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    display: inline;
     cursor: pointer;
 }
 
-nav .header_right {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
-nav .header_right .nav-heading {
-    display: inline-block;
-    font-size: xxx-large;
-    padding: 3% 0%;
-}
-
-nav .header_right .algos {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (16.66667%);
-    grid-template-columns: repeat(6, 16.66667%);
-    place-content: center;
-    padding: 2% 0%;
-}
-
-nav .header_right .algos button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    outline: none;
-    padding: 5% 0%;
-    font-size: 20px;
-}
-
-nav .header_right .algos button:hover {
-    background-color: aquamarine;
-    cursor: pointer;
-}
-
-nav .header_right .algos .butt_locked {
-    background-color: transparent;
-    cursor: pointer;
-}
-
-nav .header_right .algos .button_locked:hover {
-    background-color: transparent;
-    cursor: pointer;
-}
-
-nav .header_right .algos .button_selected {
-    background-color: white;
-    color: green;
-}
-
-nav .header_right .algos .button_selected:hover {
-    background-color: white;
-    cursor: pointer;
-}
-
-nav .header_right .algos .button_unselected:hover {
-    background-color: aquamarine;
-    cursor: pointer;
-}
-
-section {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 20% 60% 20%;
-    grid-template-columns: 20% 60% 20%;
-}
-
-
-/* section #Info_Cont1 {
-    padding: 20%;
-  }
-   */
-
-section #array_container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    height: 70vh;
-}
-
-
-/* section #Info_Cont2 {
-    padding: 20%;
-  } */
-
-.hide {
-    display: none;
-}
-
-
-/*
-  @media (max-width: 480px)//Mobiles
-  {
-      
-  }
-  
-  @media (min-width: 481px) and (max-width: 1250px)//Tablets
-  {
-  
-  }
-  
-  @media (min-width: 1251px)//Laptops and up
-  {
-  
-  }
-  */
-
-
-/*
-      *****************
-      DONE BY:-   TUMMALA KETHAN
-      E-MAIL:-    tummala.kethan@gmail.com
-      *****************
-  */
-
-
-/*# sourceMappingURL=style.css.map
-
-
-
-
-
-
-
-
-
-
-/*
-    *****************
-    DONE BY:-   TUMMALA KETHAN
-    E-MAIL:-    tummala.kethan@gmail.com
-    *****************
-*/
-
-* {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.btn-lg {
     font-size: large;
-    font-weight: bold;
-    text-transform: uppercase;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
 }
 
-nav {
-    background-color: black;
-    color: aquamarine;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 30% 60%;
-    grid-template-columns: 30% 60%;
-    -webkit-column-gap: 10%;
-    column-gap: 10%;
-    padding: 0% 5%;
-}
-
-nav .array-inputs {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 60% 40%;
-    grid-template-columns: 60% 40%;
-    place-content: center;
-    padding: 5% 0%;
-}
-
-nav .array-inputs #arr_size {
-    padding: 5% 0%;
-}
-
-nav .array-inputs #arr_speed {
-    padding: 5% 0%;
-}
-
-nav .array-inputs #arr_generate {
-    background-color: transparent;
-    border: 2px;
-    /* outline: none; */
-    border-style: solid;
-    color: aquamarine;
-    padding: 4px 4px 4px 4px;
-    /* padding-left: 20%; */
-}
-
-nav .array-inputs #a_generate:hover {
-    cursor: pointer;
-}
-
-nav .header_right {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
-nav .header_right .nav-heading {
-    display: inline-block;
-    font-size: xxx-large;
-    padding: 3% 0%;
-}
-
-nav .header_right .algos {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (16.66667%);
-    grid-template-columns: repeat(6, 16.66667%);
-    place-content: center;
-    padding: 2% 0%;
-}
-
-nav .header_right .algos button {
-    background-color: transparent;
-    border: 2px;
-    border-style: solid;
-    border-color: aquamarine;
-    color: aquamarine;
-    outline: none;
-    padding: 5% 0%;
-    font-size: 20px;
-}
-
-nav .header_right .algos button:hover {
-    background-color: aquamarine;
-    color: black;
-    cursor: pointer;
-}
-
-nav .header_right .algos .butt_locked {
-    background-color: transparent;
-    cursor: pointer;
-}
-
-nav .header_right .algos .butt_locked:hover {
-    background-color: transparent;
-    cursor: pointer;
-}
-
-nav .header_right .algos .butt_selected {
-    background-color: white;
-    color: black;
-}
-
-nav .header_right .algos .butt_selected:hover {
-    background-color: white;
-    cursor: pointer;
-}
-
-nav .header_right .algos .butt_unselected:hover {
-    background-color: aquamarine;
-    cursor: pointer;
+.btn-shadow {
+    box-shadow: 0px 2px #888;
 }
 
 section {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 20% 60% 20%;
-    grid-template-columns: 20% 60% 20%;
+    -ms-grid-columns: 20% 60% 5%;
+    grid-template-columns: 20% 60% 5%;
 }
 
 section #Info_Cont1 {
-    padding: 20%;
+    padding: 10%;
 }
 
 section #array_container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-content: center;
     width: 100%;
-    height: 70vh;
+    height: 2000px;
+    margin-bottom: none;
 }
 
 section #Info_Cont2 {
@@ -438,26 +157,5 @@ section #Info_Cont2 {
 }
 
 .hide {
-    display: none;
+    */ display: none;
 }
-
-
-/*
-@media (max-width: 480px)//Mobiles
-{
-    
-}
-
-@media (min-width: 481px) and (max-width: 1250px)//Tablets
-{
-
-}
-
-@media (min-width: 1251px)//Laptops and up
-{
-
-}
-*/
-
-
-/*# sourceMappingURL=style.css.map */
