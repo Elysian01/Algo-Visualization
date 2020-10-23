@@ -2,15 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Visualizer</title>
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
     </style>
     <link rel="icon" href="../images/logo.png" />
-    <link rel="stylesheet" type="text/css" href="../css/searching.css">
-
+    <link rel="stylesheet" type="text/css" href="../css/searching.css" />
 </head>
 
 <body>
@@ -43,65 +42,70 @@
                             BINARY SEARCH
                         </option> -->
 
-    <ul>
-        <li>
-            <a href="#">
-                <select name="algo" id="algo" onchange="algoSelected()">
-                    <option value="" disabled selected>
-                        CHOOSE ALGORITHM
-                    </option>
-                    <option value="linear">
-                        LINEAR SEARCH
-                    </option>
-                    <option value="jump">
-                        JUMP SEARCH
-                    </option>
+            <ul>
+                <li>
+                    <a href="#">
+                        <select name="algo" id="algo" onchange="algoSelected()">
+                            <option value="" disabled selected>
+                                CHOOSE ALGORITHM
+                            </option>
+                            <option value="linear">
+                                LINEAR SEARCH
+                            </option>
+                            <option value="jump">
+                                JUMP SEARCH
+                            </option>
 
-                    <option value="binary">
-                        BINARY SEARCH
-                    </option>
-                    <option value="exponent">
-                        EXPONENT SEARCH
-                    </option>
-                </select>
-            </a>
-        </li>
-        <li>
-            <a>
-            <span>Size</span>
-            <input id="slider" type="range" min=10 max=70 step=1 value=41></a>
-        </li>
+                            <option value="binary">
+                                BINARY SEARCH
+                            </option>
+                            <option value="exponent">
+                                EXPONENT SEARCH
+                            </option>
+                        </select>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span>Size</span>
+                        <input id="slider" type="range" min=10 max=70 step=1 value=41></a>
+                </li>
 
-        <li>
-            <a>
-            <span>Speed</span>
-            <input id="speed" type="range" min=1 max=10 step=1 value=8></a>        </li>
+                <li>
+                    <a>
+                        <span>Speed</span>
+                        <input id="speed" type="range" min=1 max=10 step=1 value=4></a>
+                </li>
 
 
-    </ul>
-</nav>
+            </ul>
+    </nav>
 
-<div class="containers">
+    <div class="containers">
+        <br><br>
+        <h1 id="heading">Let's start searching ? </h1>
+        <br>
+        <input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
+        <br />
+        <br />
+        <button class="success btn-lg btn-shadow" id="search" onclick="search()">
+            Search
+        </button>
+        <button class="danger btn-lg btn-shadow" id="reset" onclick="update_array() ">
+            Reset Array
+        </button>
+    </div>
     <br><br>
-    <h1 id="heading">Let's start searching ? </h1>
-    <br>
-<input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
-<br />
-<br />
-<button class="success btn-lg btn-shadow" id="search" onclick="search()">
-    Search
-</button>
-<button class="danger btn-lg btn-shadow" id="reset" onclick="update_array() ">
-    Reset Array
-</button>
-</div>
-<br><br>
-  <div class="container" id="x">
+    <div class="container" id="x">
 
     </div>
     <div id="message" style="text-align:center">
 
     </div>
+    <br /><br />
+    <div class="container" id="x"></div>
+    <br />
+    <div id="message" style="text-align: center"></div>
     <script src="./../js/searching/ls.js"></script>
 </body>
 
