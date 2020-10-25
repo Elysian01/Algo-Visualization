@@ -3,7 +3,7 @@ function Heap_Sort() {
 
     heap_sort();
 
-    enable_buttons();
+
 }
 
 function swap(i, j) {
