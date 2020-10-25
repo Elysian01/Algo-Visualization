@@ -33,7 +33,13 @@ function div_update(main_cont, height, color) {
         main_cont.style = " margin:0% " + margin_size + "%; width:" + (100 / array_size - (2 * margin_size)) + "%; height:" + height + "%; background-color:" + color + ";";
     }, c_delay += delay_time);
 }
-
+function div_updates(main_cont, height, color) {
+    window.setTimeout(function() {
+        main_cont.style = " margin:0% " + margin_size + "%; width:" + (100 / array_size - (2 * margin_size)) + "%; height:" + height + "%; background-color:" + color + ";";
+        enable_buttons()
+    }, c_delay += delay_time);
+   
+}
 // function enable_buttons() {
 //     window.setTimeout(function() {
 //         for (var i = 0; i < button_algos.length; i++) {

@@ -42,12 +42,13 @@ input_arr_size.oninput = function() {
 function algoSelected() {
     algorithm = document.getElementById("algo").value;
 }
-
+  
 function sort() {
+  
     if (algorithm == "bubble") {
         disabled();
         Bubble_Sort();
-        // enable();
+        // enable_buttons();
 
     } else if (algorithm == "selection") {
         disabled();
@@ -77,10 +78,14 @@ function disabled() {
     input_arr_speed.disabled = true;
 }
 
-function enable() {
+function enable_buttons() {
 
-    sort.disabled = false;
-    input_arr_gen.disabled = false;
-    input_arr_size.disabled = false;
-    input_arr_speed.disabled = false;
+ 
+        sort.disabled = false;
+        input_arr_gen.disabled = false;
+        input_arr_size.disabled = false;
+        input_arr_speed.disabled = false;
+    
+  
+
 }
