@@ -18,11 +18,12 @@ function generate_array() {
     main_cont.innerHTML = "";
 
     for (var i = 0; i < array_size; i++) {
-        random_array[i] = Math.floor(Math.random() * 0.5 * (input_arr_size.max - input_arr_size.min)) + 10;
+        random_array[i] = Math.floor(Math.random() * 0.5 * (input_arr_size.max - input_arr_size.min)) + 10 ;
         bars[i] = document.createElement("div");
         main_cont.appendChild(bars[i]);
-        margin_size = 0.1;
-        bars[i].style = " margin:1% " + margin_size + "%; background-color:black; width:" + (100 / array_size - (5 * margin_size)) + "%; height:" + (random_array[i]) + "%;";
+        margin_size = 0.2;
+        console.log(random_array[i]);
+        bars[i].style = " margin:1% " + margin_size + "%; background-color:black; width:" + (100 / array_size - (2 * margin_size)) + "%; height:" + (random_array[i]) + "%;" ;
     }
 }
 

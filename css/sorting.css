@@ -89,6 +89,120 @@ nav ul li a:hover {
     display: none;
 }
 
+@media only screen and (max-width: 1100px) {
+    .logo {
+        display: none;
+    }
+  
+    .mobile-logo {
+        display: block;
+        background-color: #1b1b1b;
+        /* min-width: 1200px; */
+        text-align: center;
+        border: none;
+        outline: none;
+    }
+  
+    .mobile-logo span {
+        color: #66ffff;
+    }
+  
+    /* .container {
+        min-width: 1200px;
+    } */
+    .containers{width:80%!important;margin-right:10%!important;margin-left:10%!important;}
+    .container{width:80%;margin-right:10%;margin-left:10%}
+  @media all and (max-width: 968px) {
+    nav {
+        min-width: 200px;
+    }
+     nav ul {
+          margin-right: 0px;
+          float: left;
+     }
+  
+     nav .logo {
+          padding-left: 30px;
+          width: 100%;
+     }
+  
+     .show+a,
+     ul {
+          display: none;
+     }
+  
+     nav ul li,
+     nav ul ul li {
+          display: block;
+          width: 100%;
+     }
+  
+     nav ul li a:hover {
+          box-shadow: none;
+     }
+  
+     .show {
+          display: block;
+          color: white;
+          font-size: 18px;
+          padding: 0 20px;
+          line-height: 70px;
+          cursor: pointer;
+     }
+  
+     .show:hover {
+          color: cyan;
+     }
+  
+     .icon {
+          display: block;
+          color: white;
+          position: absolute;
+          top: 0;
+          right: 40px;
+          line-height: 70px;
+          cursor: pointer;
+          font-size: 25px;
+     }
+  
+     nav ul ul {
+          top: 70px;
+          border-top: 0px;
+          float: none;
+          position: static;
+          display: none;
+          opacity: 1;
+          visibility: visible;
+     }
+  
+     nav ul ul a {
+          padding-left: 40px;
+     }
+  
+     nav ul ul ul a {
+          padding-left: 80px;
+     }
+  
+     nav ul ul ul li {
+          position: static;
+     }
+  
+     [id^=btn]:checked+ul {
+          display: block;
+     }
+  
+     nav ul ul li {
+          border-bottom: 0px;
+     }
+  
+     span.cancel:before {
+          content: '\f00d';
+     }
+  }
+  
+  }
+  
+  
 
 /* @media only screen and (max-width: 1100px) {
     .logo {

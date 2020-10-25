@@ -29,7 +29,7 @@ function Insertion_Sort() {
             div_update(bars[t], random_array[t], "green"); //Color update
         }
     }
-    div_update(bars[j - 1], random_array[j - 1], "green"); //Color update
+    div_updates(bars[j - 1], random_array[j - 1], "green"); //Color update
 
-    enable_buttons();
+    //enable_buttons();
 }

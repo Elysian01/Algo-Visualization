@@ -3,6 +3,8 @@ function Heap_Sort() {
 
     heap_sort();
 
+    //enable();
+
 
 }
 
@@ -68,5 +70,5 @@ function heap_sort() {
         div_update(bars[i], random_array[i], "blue"); //Color update
         div_update(bars[i], random_array[i], "green"); //Color update
     }
-    div_update(bars[i], random_array[i], "green"); //Color update
+    div_updates(bars[i], random_array[i], "green"); //Color update
 }
