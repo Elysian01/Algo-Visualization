@@ -65,7 +65,7 @@ function sort() {
         disabled();
         Heap_Sort();
     } else {
-        alert("CHOOSE AN ALGORITHM FIRST")
+        alert("CHOOSE AN ALGORITHM FIRST");
     }
 }
 

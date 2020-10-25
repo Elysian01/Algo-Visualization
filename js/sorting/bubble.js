@@ -18,9 +18,9 @@ function Bubble_Sort() {
             }
             div_update(bars[j], random_array[j], "black"); //Color updat
         }
-        div_update(bars[j], random_array[j], "aqua"); //Color update
+        div_update(bars[j], random_array[j], "blue"); //Color update
     }
-    div_update(bars[0], random_array[0], "aqua"); //Color update
+    div_update(bars[0], random_array[0], "blue"); //Color update
 
-    enable_buttons();
+    //enable_buttons();
 }
