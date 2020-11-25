@@ -65,7 +65,7 @@ function display_header()
           <ul>
           ";
 
-     if (!isset($_SESSION['user_id'])) {
+     if (!isset($_SESSION['email'])) {
           echo "<li><a href='../templates/authentication.php'>Login</a></li>";
      }
 
@@ -102,7 +102,7 @@ function display_header()
                </li>";
 
 
-     if (isset($_SESSION['user_id'])) {
+     if (isset($_SESSION['email'])) {
           echo "
                <li><a href='#'>Notes</a></li>
                <li><a href='#'>Bookmarks</a></li>
@@ -114,8 +114,8 @@ function display_header()
                ";
      }
 
-     if (isset($_SESSION['user_id'])) {
-          echo "<li><a href='../functions/logout.php'>Logout</a></li>";
+     if (isset($_SESSION['email'])) {
+          echo "<li><a href='logout.php'>Logout</a></li>";
      }
 
      echo "</ul></nav>";

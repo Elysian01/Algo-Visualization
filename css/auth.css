@@ -20,7 +20,7 @@
 
 .form-box {
     width: 380px;
-    height: 380px;
+    height: 400px;
     position: relative;
     margin: 3% auto;
     background-color: #fff;
@@ -106,4 +106,13 @@
 
 #register {
     left: 450px;
+}
+
+.danger {
+    background-color: #fe4a49;
+    /* background-color: #ff4d00; */
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 4px;
 }
