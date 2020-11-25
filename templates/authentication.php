@@ -90,7 +90,7 @@ if (!isset($_SESSION['access_token'])) {
                 <input type="password" name="password" class="input-field" placeholder="Password" required>
                 <button class="submit-btn" type="submit" name="login">Login</button>
                 <br>
-                <a href="#" class="link">Forgot Password ?</a>
+                <a href="email.php" class="link">Forgot Password ?</a>
 
                 <div>
 

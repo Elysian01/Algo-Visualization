@@ -3,6 +3,7 @@ include('google_config.php');
 
 session_start();
 
+
 $google_client->revokeToken();
 
 session_destroy();
