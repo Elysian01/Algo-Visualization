@@ -29,9 +29,9 @@ function Selection_Sort() {
             div_update(bars[i], random_array[i], "red"); //Height update
             div_update(bars[index_min], random_array[index_min], "#000080"); //Color update
         }
-        div_update(bars[i], random_array[i], "green"); //Color update
+        div_update(bars[i], random_array[i], "#800000"); //Color update
     }
-    div_update(bars[i], random_array[i], "green"); //Color update
+    div_updates(bars[i], random_array[i], "#800000"); //Color update
 
-    enable_buttons();
+    //enable_buttons();
 }
