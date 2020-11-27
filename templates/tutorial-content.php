@@ -35,66 +35,68 @@ include('../config/db.php');
 <body>
 	<?php
 
-    display_header();
+	display_header();
 
-    ?>
+	?>
 
 	<?php
 
-    if (isset($_GET['id'])) {
-        $idno = $_GET['id'];
-        $sql = "SELECT * FROM algo where algo_id= '$idno' ";
-        $result = mysqli_query($con, $sql);
-        while ($row = mysqli_fetch_assoc($result)) {
-            $image = $row['image'];
-            echo '<br><div class="header-container "><div><button class="btn-start invisible tutorial-btn" >Add Bookmark !</button></div>	<div><h1 class="algorithm-text">' . $row["name"] . '';
+	if (isset($_GET['id'])) {
+		$idno = $_GET['id'];
+		$sql = "SELECT * FROM algo where algo_id= '$idno' ";
+		$result = mysqli_query($con, $sql);
+		while ($row = mysqli_fetch_assoc($result)) {
+			$image = $row['image'];
+			echo '<br><div class="header-container "><div><button class="btn-start invisible tutorial-btn" >Add Bookmark !</button></div>	<div><h1 class="algorithm-text">' . $row["name"] . '';
 
 
-            if ($row["grp_id"] == 3) {
-                echo ' Search <img style="margin-bottom:-5px" src="https://img.icons8.com/doodle/40/000000/search--v1.png" /></h1></div>';
-            } elseif ($row["grp_id"] == 2) {
-                echo ' Sorting  <img style="margin-bottom:-5px"  src="https://img.icons8.com/office/30/000000/numerical-sorting-21.png"/></h1></div>';
-            } else {
-                echo '</h1></div>';
-						} 
-						?>
+			if ($row["grp_id"] == 3) {
+				echo ' Search <img style="margin-bottom:-5px" src="https://img.icons8.com/doodle/40/000000/search--v1.png" /></h1></div>';
+			} elseif ($row["grp_id"] == 2) {
+				echo ' Sorting  <img style="margin-bottom:-5px"  src="https://img.icons8.com/office/30/000000/numerical-sorting-21.png"/></h1></div>';
+			} else {
+				echo '</h1></div>';
+			}
+	?>
 
 			<?php
 
-            if (isset($_SESSION['user_id'])) {
-                $users_id = $_SESSION['user_id'];
-                $sql = "SELECT * FROM bookmark where users_id='$users_id'   ";
-                $result = mysqli_query($con, $sql);
+			if (isset($_SESSION['user_id'])) {
+				$users_id = $_SESSION['user_id'];
+				$sql = "SELECT * FROM bookmark where users_id='$users_id'   ";
+				$result = mysqli_query($con, $sql);
 
-                if (mysqli_num_rows($result) > 0) {
-                    $rows = mysqli_fetch_assoc($result);
-                    $value = $rows['algo_id'];
-                    $array_of_bookmarks = unserialize($value);
-                    if (isset($_GET['id'])) {
-                        $idno = $_GET['id'];
-                        $bookmark_is_present =	array_search($idno, $array_of_bookmarks);
-                        
-                        if ($bookmark_is_present === false) {
-                            ?>
-						<div>	<button id="addbookmark" onclick=addbookmark(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn">Add Bookmark !</button></div>
+				if (mysqli_num_rows($result) > 0) {
+					$rows = mysqli_fetch_assoc($result);
+					$value = $rows['algo_id'];
+					$array_of_bookmarks = unserialize($value);
+					if (isset($_GET['id'])) {
+						$idno = $_GET['id'];
+						$bookmark_is_present =	array_search($idno, $array_of_bookmarks);
+
+						if ($bookmark_is_present === false) {
+			?>
+							<div> <button id="addbookmark" onclick=addbookmark(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn">Add Bookmark !</button></div>
 
 						<?php } else { ?>
 
-						<div>	<button id="deletebookmark" onclick=deletebookmark(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn" style="background-color:#ff4d00">Remove Bookmark !</button></div>
+							<div> <button id="deletebookmark" onclick=deletebookmark(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn" style="background-color:#ff4d00">Remove Bookmark !</button></div>
 
 				<?php
-                        }
-                    }
-                }
-            } else {
-                ?>
-			<div>	<a href="./invalid_access.php"> <button class="btn-start tutorial-btn">Add Bookmark !</button></a></div>
+						}
+					}
+				}else{?>
+												<div> <button id="addbookmark" onclick=addbookmark(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn">Add Bookmark !</button></div>
+			<?php	}
+			} else {
+				?>
+				<div> <a href="./invalid_access.php"> <button class="btn-start tutorial-btn">Add Bookmark !</button></a></div>
 
-			
+
 
 			<?php
-            }
-            echo '</div><br>
+			}
+			echo '</div><br>
 <h2 class="text-center text-responsive" style="padding:5px;">' . $row["definition"] . '</h2>
 
 			<br><br>
@@ -142,9 +144,9 @@ include('../config/db.php');
 	<br>
 </div>
 	<br> ';
-        }
-    }
-    ?>
+		}
+	}
+	?>
 	<script type="text/javascript">
 		function openCity(evt, cityName) {
 			// Declare all variables
@@ -176,27 +178,32 @@ include('../config/db.php');
 			request.onreadystatechange = function() {
 				console.log(request.responseText);
 			}
-	var addbookmark=		document.getElementById('addbookmark');
-	addbookmark.style.backgroundColor="#ff4d00";
-	addbookmark.innerText="Remove Bookmark !";
-	addbookmark.onclick = function () { deletebookmark(data, user_id); };
-	addbookmark.id="deletebookmark";
+			var addbookmark = document.getElementById('addbookmark');
+			addbookmark.style.backgroundColor = "#ff4d00";
+			addbookmark.innerText = "Remove Bookmark !";
+			addbookmark.onclick = function() {
+				deletebookmark(data, user_id);
+			};
+			addbookmark.id = "deletebookmark";
 		}
+
 		function deletebookmark(data, user_id) {
 
 
-var request = new XMLHttpRequest();
-request.open("GET", "http://localhost/Algo-Visualization/templates/delete_bookmark.php?bm=" + data + "&id=" + user_id, true);
-request.send();
-request.onreadystatechange = function() {
-	console.log(request.responseText);
-}
-var deletebookmark=		document.getElementById('deletebookmark');
-	deletebookmark.style.backgroundColor="#ffc60b";
-	deletebookmark.innerText="Add Bookmark !";
-	deletebookmark.onclick = function () { addbookmark(data, user_id); };
-	deletebookmark.id="addbookmark";
-}
+			var request = new XMLHttpRequest();
+			request.open("GET", "http://localhost/Algo-Visualization/templates/delete_bookmark.php?bm=" + data + "&id=" + user_id, true);
+			request.send();
+			request.onreadystatechange = function() {
+				console.log(request.responseText);
+			}
+			var deletebookmark = document.getElementById('deletebookmark');
+			deletebookmark.style.backgroundColor = "#ffc60b";
+			deletebookmark.innerText = "Add Bookmark !";
+			deletebookmark.onclick = function() {
+				addbookmark(data, user_id);
+			};
+			deletebookmark.id = "addbookmark";
+		}
 	</script>
 </body>
 
