@@ -29,7 +29,6 @@ include("../config/db.php");
         }
         ?>
     </div>
-
 </body>
 
 </html>

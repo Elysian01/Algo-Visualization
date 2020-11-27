@@ -44,8 +44,35 @@ if (isset($_GET["code"])) {
         }
 
         if (!empty($data['email'])) {
+
             $_SESSION["email"] = $data['email'];
         }
+
+        $name =
+            $_SESSION['user_first_name'] . ' ' . $_SESSION['user_last_name'];
+        $email = $_SESSION['email'];
+
+        $query = "select * from auth where email = '$email' and password = 'user_logged_in_via_google'";
+        $run_query = mysqli_query($con, $query);
+        $count_rows = mysqli_num_rows($run_query);
+        if ($count_rows == 0) {
+            $query_reg = "insert into auth (name,email,password) values ('$name','$email','user_logged_in_via_google')";
+            $run_register_query = mysqli_query($con, $query_reg);
+
+            if ($run_register_query) {
+                $query_for_id = "select * from auth where email = '$email' and password = 'user_logged_in_via_google'";
+                $run_query_id = mysqli_query($con, $query);
+                while ($row = mysqli_fetch_array($run_query_id)) {
+                    $id = $row['user_id'];
+                }
+            }
+        } else {
+            while ($row = mysqli_fetch_array($run_query)) {
+                $id = $row['user_id'];
+            }
+        }
+
+        $_SESSION['user_id'] = $id;
     }
 }
 
