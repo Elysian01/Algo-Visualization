@@ -26,34 +26,77 @@ include('../config/db.php');
 		}
 	</style>
 	<style>
-pre{
-	overflow:auto;
-}
+		pre {
+			overflow: auto;
+		}
 	</style>
 </head>
 
 <body>
-	<?php display_header(); ?>
-	<?php if (isset($_GET['id'])) {
-		$idno = $_GET['id'];
-		$sql = "SELECT * FROM algo where algo_id= '$idno' ";
-		$result = mysqli_query($con, $sql);
-		while ($row = mysqli_fetch_assoc($result)) {
-			echo '<br>
-			<h1 class="text-center">' . $row["name"] . '';
-if ($row["grp_id"] == 3) {
-				echo ' Search <img style="margin-bottom:-5px" src="https://img.icons8.com/doodle/40/000000/search--v1.png" />';} 
-elseif ($row["grp_id"] == 2) {
-echo ' Sorting  <img style="margin-bottom:-5px"  src="https://img.icons8.com/office/30/000000/numerical-sorting-21.png"/>';
-} 
-			else {
-				echo '';
-			}
+	<?php
+
+    display_header();
+
+    ?>
+
+	<?php
+
+    if (isset($_GET['id'])) {
+        $idno = $_GET['id'];
+        $sql = "SELECT * FROM algo where algo_id= '$idno' ";
+        $result = mysqli_query($con, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+            $image = $row['image'];
+            echo '<br><div class="header-container "><div><button class="btn-start invisible tutorial-btn" >Add Bookmark !</button></div>	<div><h1 class="algorithm-text">' . $row["name"] . '';
 
 
+            if ($row["grp_id"] == 3) {
+                echo ' Search <img style="margin-bottom:-5px" src="https://img.icons8.com/doodle/40/000000/search--v1.png" /></h1></div>';
+            } elseif ($row["grp_id"] == 2) {
+                echo ' Sorting  <img style="margin-bottom:-5px"  src="https://img.icons8.com/office/30/000000/numerical-sorting-21.png"/></h1></div>';
+            } else {
+                echo '</h1></div>';
+						} 
+						?>
 
-echo '</h1><br>
+			<?php
+
+            if (isset($_SESSION['user_id'])) {
+                $users_id = $_SESSION['user_id'];
+                $sql = "SELECT * FROM bookmark where users_id='$users_id'   ";
+                $result = mysqli_query($con, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    $rows = mysqli_fetch_assoc($result);
+                    $value = $rows['algo_id'];
+                    $array_of_bookmarks = unserialize($value);
+                    if (isset($_GET['id'])) {
+                        $idno = $_GET['id'];
+                        $bookmark_is_present =	array_search($idno, $array_of_bookmarks);
+                        
+                        if ($bookmark_is_present === false) {
+                            ?>
+						<div>	<button id="addbookmark" onclick=addbookmark(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn">Add Bookmark !</button></div>
+
+						<?php } else { ?>
+
+						<div>	<button id="deletebookmark" onclick=deletebookmark(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn" style="background-color:#ff4d00">Remove Bookmark !</button></div>
+
+				<?php
+                        }
+                    }
+                }
+            } else {
+                ?>
+			<div>	<a href="./invalid_access.php"> <button class="btn-start tutorial-btn">Add Bookmark !</button></a></div>
+
+			
+
+			<?php
+            }
+            echo '</div><br>
 <h2 class="text-center text-responsive" style="padding:5px;">' . $row["definition"] . '</h2>
+
 			<br><br>
 	<div class="tutorial-card">
 		<div class="card-header" style="background-color:black;color:#33ffff">
@@ -62,23 +105,23 @@ echo '</h1><br>
 	<div class="card-body">
 		
 		<p class="card-text">' ?>
-		
 
-		<?php echo '	' . $row["explaination"] . '
+
+			<?php echo '	' . $row["explaination"] . '
 		</p>
 	
 	</div>
-			</div> <img src=' . $row["image"] . ' class="lineargif">
+			</div><br> <img src=' . "../images/preview/$image" . '  class="lineargif" height=350>
 			<br>
 			<br>
 			<div class="tab">'; ?>
 
-	<button class="tablinks" onclick="openCity(event, 'Python3')">Python3</button>
-	<button class="tablinks" onclick="openCity(event, 'C++')">C++</button>
-	<button class="tablinks" onclick="openCity(event, 'JAVA')">JAVA</button>
-	</div>
+			<button class="tablinks" onclick="openCity(event, 'Python3')">Python3</button>
+			<button class="tablinks" onclick="openCity(event, 'C++')">C++</button>
+			<button class="tablinks" onclick="openCity(event, 'JAVA')">JAVA</button>
+			</div>
 
-<?php echo '
+	<?php echo '
 <div id="Python3" class="tabcontent ">
 	<pre class="prettyprint">' . $row["python"] . '
 	</pre>
@@ -99,33 +142,114 @@ echo '</h1><br>
 	<br>
 </div>
 	<br> ';
-		}
-	} ?>
-<script type="text/javascript">
-	function openCity(evt, cityName) {
-		// Declare all variables
-		var i, tabcontent, tablinks;
+        }
+    }
+    ?>
+	<script type="text/javascript">
+		function openCity(evt, cityName) {
+			// Declare all variables
+			var i, tabcontent, tablinks;
 
-		// Get all elements with class="tabcontent" and hide them
-		tabcontent = document.getElementsByClassName("tabcontent");
-		for (i = 0; i < tabcontent.length; i++) {
-			tabcontent[i].style.display = "none";
+			// Get all elements with class="tabcontent" and hide them
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+
+			// Get all elements with class="tablinks" and remove the class "active"
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+
+			// Show the current tab, and add an "active" class to the button that opened the tab
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
 		}
 
-		// Get all elements with class="tablinks" and remove the class "active"
-		tablinks = document.getElementsByClassName("tablinks");
-		for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
-		}
+		function addbookmark(data, user_id) {
 
-		// Show the current tab, and add an "active" class to the button that opened the tab
-		document.getElementById(cityName).style.display = "block";
-		evt.currentTarget.className += " active";
-	}
-</script>
+
+			var request = new XMLHttpRequest();
+			request.open("GET", "http://localhost/Algo-Visualization/templates/add_bookmark.php?bm=" + data + "&id=" + user_id, true);
+			request.send();
+			request.onreadystatechange = function() {
+				console.log(request.responseText);
+			}
+	var addbookmark=		document.getElementById('addbookmark');
+	addbookmark.style.backgroundColor="#ff4d00";
+	addbookmark.innerText="Remove Bookmark !";
+	addbookmark.onclick = function () { deletebookmark(data, user_id); };
+	addbookmark.id="deletebookmark";
+		}
+		function deletebookmark(data, user_id) {
+
+
+var request = new XMLHttpRequest();
+request.open("GET", "http://localhost/Algo-Visualization/templates/delete_bookmark.php?bm=" + data + "&id=" + user_id, true);
+request.send();
+request.onreadystatechange = function() {
+	console.log(request.responseText);
+}
+var deletebookmark=		document.getElementById('deletebookmark');
+	deletebookmark.style.backgroundColor="#ffc60b";
+	deletebookmark.innerText="Add Bookmark !";
+	deletebookmark.onclick = function () { addbookmark(data, user_id); };
+	deletebookmark.id="addbookmark";
+}
+	</script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- <br>
 	<h1 class="text-center">Linear Search<img style="margin-bottom:-5px" src="https://img.icons8.com/doodle/40/000000/search--v1.png" /> </h1>
 	<br>

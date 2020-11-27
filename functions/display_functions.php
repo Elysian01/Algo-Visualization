@@ -43,6 +43,49 @@ function print_cards($id)
      }
 }
 
+function print_bookmark_cards($id)
+{
+     global $con;
+
+     $query = "select * from algo where algo_id = $id";
+$sesion_user_id=$_SESSION['user_id'];
+
+     $run_query = mysqli_query($con, $query);
+
+     while ($row = mysqli_fetch_array($run_query)) {
+          $name = $row['name'];
+          $image = $row['image'];
+          $grp_id=$row['grp_id'];
+          if ($grp_id == 1) {
+               $link = "./pathfinding.html";
+          } elseif ($grp_id == 2) {
+               $link = "./sorting.html";
+          } else {
+               $link = "./search.html";
+          }
+     
+          // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
+
+          echo "
+          <div class='card'>
+            <img class='card-image' src='../images/preview/$image' alt='Sorting image'>
+            <div class='container'>
+                <div class='card-title'>
+                    <h2>$name Algorithm</h2>
+                </div>
+                <div class='card-buttons'>
+                    <button class='btn-primary'><a href='#'>Tutorials</a></button>
+                    <a href='$link'><button class='btn-danger'>Visualize</button></a>
+                    <br>
+                    <button onclick=\"deletebookmark( $id,$sesion_user_id)\" class='btn-danger mt-2'  style='margin-top:3px;'>Delete</button>
+                </div>
+            </div>
+            <br>
+        </div>
+     ";
+     }
+}
+
 
 function display_header()
 {
@@ -105,7 +148,7 @@ function display_header()
      if (isset($_SESSION['user_id'])) {
           echo "
                <li><a href='#'>Notes</a></li>
-               <li><a href='#'>Bookmarks</a></li>
+               <li><a href='../templates/bookmark.php'>Bookmarks</a></li>
                ";
      } else {
           echo "
