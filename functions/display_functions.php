@@ -65,7 +65,7 @@ $sesion_user_id=$_SESSION['user_id'];
           }
      
           // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-
+$tutorial_link="./tutorial-content.php?id=".$id;
           echo "
           <div class='card'>
             <img class='card-image' src='../images/preview/$image' alt='Sorting image'>
@@ -74,7 +74,7 @@ $sesion_user_id=$_SESSION['user_id'];
                     <h2>$name Algorithm</h2>
                 </div>
                 <div class='card-buttons'>
-                    <button class='btn-primary'><a href='#'>Tutorials</a></button>
+                    <button class='btn-primary'><a href='$tutorial_link'>Tutorials</a></button>
                     <a href='$link'><button class='btn-danger'>Visualize</button></a>
                     <br>
                     <button onclick=\"deletebookmark( $id,$sesion_user_id)\" class='btn-danger mt-2'  style='margin-top:3px;'>Delete</button>
