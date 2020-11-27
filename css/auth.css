@@ -20,12 +20,24 @@
 
 .form-box {
     width: 380px;
-    height: 380px;
+    height: 400px;
     position: relative;
     margin: 3% auto;
     background-color: #fff;
     padding: 5px;
     overflow: hidden;
+    /* border: 1px solid #000; */
+    box-shadow: 0 0 20px 9px #ff61241f;
+}
+
+.mail-box {
+    width: 380px;
+    height: 235px;
+    position: relative;
+    margin: 3% auto;
+    background-color: #fff;
+    padding: 20px;
+    /* overflow: hidden; */
     /* border: 1px solid #000; */
     box-shadow: 0 0 20px 9px #ff61241f;
 }
@@ -106,4 +118,13 @@
 
 #register {
     left: 450px;
+}
+
+.danger {
+    background-color: #fe4a49;
+    /* background-color: #ff4d00; */
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 4px;
 }
