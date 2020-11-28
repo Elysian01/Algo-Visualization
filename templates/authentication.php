@@ -1,3 +1,89 @@
+<?php
+
+include("../config/db.php");
+
+session_start();
+
+?>
+
+
+<!-- Google Login -->
+
+<?php
+
+include('google_config.php');
+
+$login_button = '';
+
+
+if (isset($_GET["code"])) {
+
+    $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
+
+
+    if (!isset($token['error'])) {
+
+        $google_client->setAccessToken($token['access_token']);
+
+
+        $_SESSION['access_token'] = $token['access_token'];
+
+
+        $google_service = new Google_Service_Oauth2($google_client);
+
+
+        $data = $google_service->userinfo->get();
+
+
+        if (!empty($data['given_name'])) {
+            $_SESSION['user_first_name'] = $data['given_name'];
+        }
+
+        if (!empty($data['family_name'])) {
+            $_SESSION['user_last_name'] = $data['family_name'];
+        }
+
+        if (!empty($data['email'])) {
+
+            $_SESSION["email"] = $data['email'];
+        }
+
+        $name =
+            $_SESSION['user_first_name'] . ' ' . $_SESSION['user_last_name'];
+        $email = $_SESSION['email'];
+
+        $query = "select * from auth where email = '$email' and password = 'user_logged_in_via_google'";
+        $run_query = mysqli_query($con, $query);
+        $count_rows = mysqli_num_rows($run_query);
+        if ($count_rows == 0) {
+            $query_reg = "insert into auth (name,email,password) values ('$name','$email','user_logged_in_via_google')";
+            $run_register_query = mysqli_query($con, $query_reg);
+
+            if ($run_register_query) {
+                $query_for_id = "select * from auth where email = '$email' and password = 'user_logged_in_via_google'";
+                $run_query_id = mysqli_query($con, $query);
+                while ($row = mysqli_fetch_array($run_query_id)) {
+                    $id = $row['user_id'];
+                }
+            }
+        } else {
+            while ($row = mysqli_fetch_array($run_query)) {
+                $id = $row['user_id'];
+            }
+        }
+
+        $_SESSION['user_id'] = $id;
+    }
+}
+
+
+if (!isset($_SESSION['access_token'])) {
+
+    $login_button = '<a href="' . $google_client->createAuthUrl() . '" style = "border: none;color: #fff;padding: 15px 15px;border-radius: 4px;background-color: #fe4a49;text-decoration:none;" >Login With Google</a>';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +93,9 @@
     <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/auth.css">
     <link rel="icon" href="../images/logo.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <title>Authentication</title>
 </head>
@@ -28,7 +117,28 @@
                 <input type="password" name="password" class="input-field" placeholder="Password" required>
                 <button class="submit-btn" type="submit" name="login">Login</button>
                 <br>
-                <a href="#" class="link">Forgot Password ?</a>
+                <a href="email.php" class="link">Forgot Password ?</a>
+
+                <div>
+
+
+                    <?php
+
+                    if ($login_button == '') {
+                        // echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
+                        // echo '<h3><b>Name :</b> ' . $_SESSION['user_first_name'] . ' ' . $_SESSION['user_last_name'] . '</h3>';
+                        // echo '<h3><b>Email :</b> ' . $_SESSION['user_email_address'] . '</h3>';
+                        // echo '<h3><a href="logout.php">Logout</h3></div>';
+                        $_SESSION['name'] = $_SESSION['user_first_name'] . ' ' . $_SESSION['user_last_name'];
+                        echo "<script>window.open('index.php','_self')</script>";
+                    } else {
+                        echo '<br><div align="center" style="display:block;position:absolute;margin:7px;margin-left:80px;">' . $login_button . '</div>';
+                    }
+
+                    ?>
+                </div>
+
+                <br><br>
             </form>
 
             <form action="authentication.php" class="input-group" id="register" method="POST">
@@ -38,7 +148,11 @@
                 <button class="submit-btn" type="submit" name="register" onclick="return validateEmail()">Register</button>
                 <!-- <div class="execute" style="visibility: hidden;"></div> -->
             </form>
+
+
         </div>
+
+
     </div>
 
 
@@ -80,9 +194,6 @@
 
 <?php
 
-include("../config/db.php");
-
-session_start();
 
 if (isset($_POST['login'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
@@ -116,6 +227,8 @@ if (isset($_POST['login'])) {
 
     $_SESSION['user_id'] = $id;
     $_SESSION['name'] = $name;
+    $_SESSION['email'] = $email;
+
     echo "<script>window.open('index.php','_self')</script>";
 }
 
