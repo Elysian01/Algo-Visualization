@@ -31,7 +31,7 @@ function merge_sort(start, mid, end) {
 
     for (var t = 0; t < k; t++) {
         random_array[start++] = Arr[t];
-        div_updates(bars[start - 1], random_array[start - 1], "black"); //Color update
+        div_updates(bars[start - 1], random_array[start - 1], "orange"); //Color update
     }
 }
 

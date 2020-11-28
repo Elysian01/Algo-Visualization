@@ -26,10 +26,10 @@ function Insertion_Sort() {
         random_array[i + 1] = key;
 
         for (var t = 0; t < j; t++) {
-            div_update(bars[t], random_array[t], "green"); //Color update
+            div_update(bars[t], random_array[t], "orange"); //Color update
         }
     }
-    div_updates(bars[j - 1], random_array[j - 1], "green"); //Color update
+    div_updates(bars[j - 1], random_array[j - 1], "orange"); //Color update
 
     //enable_buttons();
 }

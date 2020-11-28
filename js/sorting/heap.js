@@ -62,13 +62,13 @@ function heap_sort() {
 
     for (var i = array_size - 1; i > 0; i--) {
         swap(0, i);
-        div_update(bars[i], random_array[i], "green"); //Color update
+        div_update(bars[i], random_array[i], "orange"); //Color update
         div_update(bars[i], random_array[i], "yellow"); //Color update
 
         max_heapify(i, 0);
 
         div_update(bars[i], random_array[i], "blue"); //Color update
-        div_update(bars[i], random_array[i], "green"); //Color update
+        div_update(bars[i], random_array[i], "orange"); //Color update
     }
-    div_updates(bars[i], random_array[i], "green"); //Color update
+    div_updates(bars[i], random_array[i], "orange"); //Color update
 }
