@@ -18,6 +18,11 @@ $sql = "SELECT * FROM course where user_id=$users_id 	  ";
    perecentage_calculator(1, $a);
         perecentage_calculator(2, $a);
         perecentage_calculator(3, $a);
+    }else{
+
+        $_SESSION["pathfinding_percent"]=0;
+        $_SESSION["sorting_percent"]=0;
+        $_SESSION["searching_percent"]=0;
     }}
 
     ?>
