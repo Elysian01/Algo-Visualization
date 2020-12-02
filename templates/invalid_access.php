@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include("../functions/display_functions.php");
 include("../config/db.php");
 ?>
@@ -31,4 +31,4 @@ include("../config/db.php");
 
 </body>
 
-</html>
+</html> -->
