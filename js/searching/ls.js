@@ -224,6 +224,7 @@ function linearSearch() {
                 arrayBox.classList.add("growFind");
                 arrayBox.classList.add("highlight");
             }, i * ANIMATION_SPEED_SECONDS * 1000);
+            
             break;
         } else {
             msg = `${target} not found`;
@@ -240,8 +241,8 @@ function linearSearch() {
     setTimeout(() => {
         document.getElementById("message").innerHTML = `<h1>${msg}</h1>`;
         enable();
-    }, (count * 1 * 1000));
-
+    }, count* 1 * 1000);
+    // (count * 1 * 1000)
 }
 
 function exponentSearch() {

@@ -23,8 +23,9 @@ function print_cards($id)
      while ($row = mysqli_fetch_array($run_query)) {
           $name = $row['name'];
           $image = $row['image'];
+          $algo_id=$row['algo_id'];
           // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-
+          $tutorial_link="./tutorial-content.php?id=".$algo_id;
           echo "
           <div class='card'>
             <img class='card-image' src='../images/preview/$image' alt='Sorting image'>
@@ -33,7 +34,7 @@ function print_cards($id)
                     <h2>$name Algorithm</h2>
                 </div>
                 <div class='card-buttons'>
-                    <button class='btn-primary'><a href='#'>Tutorials</a></button>
+                    <button class='btn-primary'><a href='$tutorial_link'>Tutorials</a></button>
                     <a href='$link'><button class='btn-danger'>Visualize</button></a>
                 </div>
             </div>
@@ -162,4 +163,17 @@ function display_header()
      }
 
      echo "</ul></nav>";
+}
+function display_footer(){
+  echo ' <div class="grid-container">
+     <div class="inner-container">
+     Ansh Mitesh Chhadva
+     </div>
+     <div class="inner-container">
+     Gladina Raymond
+     </div>
+     <div class="inner-container">
+     Abhishek Gupta 
+     </div>
+     </div>';
 }
