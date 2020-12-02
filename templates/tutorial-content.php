@@ -143,11 +143,48 @@ include('../config/db.php');
 </pre>
 	<br>
 </div>
-	<br> ';
+ ';
 		}
 	}
 	?>
-	<script type="text/javascript">
+	<!-- //button -->
+<?php 
+if (isset($_GET['id']) && isset($_SESSION['user_id'])) {
+    $idno=$_GET['id'];
+		$users_id=	$_SESSION['user_id'];
+		$sql = "SELECT * FROM algo where algo_id='$idno'   ";
+    $result = mysqli_query($con, $sql);
+    $rows = mysqli_fetch_assoc($result);
+    $name = $rows['name'];
+
+    $sql = "SELECT * FROM course where user_id='$users_id'   ";
+    $result = mysqli_query($con, $sql);
+    // echo mysqli_num_rows($result);
+    if (mysqli_num_rows($result) > 0) {
+        $rows = mysqli_fetch_assoc($result);
+        $value = $rows['course_completion'];
+        $array_of_courses = unserialize($value);
+        if ($array_of_courses[$name]==1) {
+            ?>
+<div> <button id="deletecoursecompletion" onclick=deletecoursecompletion(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn" style="background-color:#ff4d00">Course Completed !</button></div>
+
+<?php
+        } else {
+            ?><div> <button id="addcoursecompletion" onclick=addcoursecompletion(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn">Course Complete !</button></div><?php
+        } ?>
+							
+<?php
+    } else {
+        ?><div> <button id="addcoursecompletion" onclick=addcoursecompletion(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn">Course Complete !</button></div><?php
+    }
+}else{
+	?>
+		<div> <a href="./invalid_access.php"> <button class="btn-start tutorial-btn">Course Completed !</button></a></div>
+	<?php
+}
+?>
+
+<script type="text/javascript">
 		function openCity(evt, cityName) {
 			// Declare all variables
 			var i, tabcontent, tablinks;
@@ -203,6 +240,37 @@ include('../config/db.php');
 				addbookmark(data, user_id);
 			};
 			deletebookmark.id = "addbookmark";
+		}
+		function addcoursecompletion(data,user_id){
+			var request = new XMLHttpRequest();
+			request.open("GET", "http://localhost/Algo-Visualization/templates/add_course.php?bm=" + data + "&id=" + user_id, true);
+			request.send();
+			request.onreadystatechange = function() {
+			
+				console.log(request.responseText);
+			}
+			var addcoursecompletion = document.getElementById('addcoursecompletion');
+			addcoursecompletion.style.backgroundColor = "#ff4d00";
+			addcoursecompletion.innerText = "Course Completed !";
+			addcoursecompletion.onclick = function() {
+				deletecoursecompletion(data, user_id);
+			};
+			addcoursecompletion.id = "deletecoursecompletion";
+		}
+		function deletecoursecompletion(data,user_id){
+			var request = new XMLHttpRequest();
+			request.open("GET", "http://localhost/Algo-Visualization/templates/delete_course.php?bm=" + data + "&id=" + user_id, true);
+			request.send();
+			request.onreadystatechange = function() {
+				console.log(request.responseText);
+			}
+			var deletecoursecompletion = document.getElementById('deletecoursecompletion');
+			deletecoursecompletion.style.backgroundColor = "#ffc60b";
+			deletecoursecompletion.innerText = "Course Complete !";
+			deletecoursecompletion.onclick = function() {
+				addcoursecompletion(data, user_id);
+			};
+			deletecoursecompletion.id = "addcoursecompletion";
 		}
 	</script>
 </body>

@@ -18,7 +18,12 @@
   justify-content: space-between;
   grid-template-columns: auto auto auto;
 }
-
+.grid-container{
+  display: grid;
+  background: #1b1b1b;
+  grid-template-columns: auto auto auto ;
+    justify-content: space-evenly;
+}
 * {
   margin: 0;
   padding: 0;

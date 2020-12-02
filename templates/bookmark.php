@@ -26,6 +26,7 @@ include('../config/db.php');
   <div class="card-deck" id="card-decks">
  
   </div>
+  <?php display_footer(); ?>
 <script>
 // console.log(document.getElementById("card-decks"))
 loadData();
