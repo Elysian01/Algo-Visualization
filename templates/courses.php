@@ -5,7 +5,22 @@ include("../config/db.php");
 
 <!DOCTYPE html>
 <html lang="en">
+<?php
+if (isset($_SESSION['user_id'])) {
+$users_id = $_SESSION['user_id'];
+$sql = "SELECT * FROM course where user_id=$users_id 	  ";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        $rows = mysqli_fetch_assoc($result);
+        $value = $rows['course_completion'];
 
+        $a = unserialize($value);
+   perecentage_calculator(1, $a);
+        perecentage_calculator(2, $a);
+        perecentage_calculator(3, $a);
+    }}
+
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -145,7 +160,7 @@ include("../config/db.php");
             top: 0;
             left: 0;
             height: 8px;
-            width: 36%;
+            width: <?php echo $_SESSION["sorting_percent"]; ?>%;
         }
 
         .search-progress::after {
@@ -156,7 +171,7 @@ include("../config/db.php");
             top: 0;
             left: 0;
             height: 8px;
-            width: 36%;
+            width: <?php echo $_SESSION["searching_percent"]; ?>%;
         }
 
         .pathfinding-progress::after {
@@ -167,7 +182,8 @@ include("../config/db.php");
             top: 0;
             left: 0;
             height: 8px;
-            width: 36%;
+            width: <?php echo $_SESSION["pathfinding_percent"]; ?>%;
+            
         }
 
         .sort-progress-text {
@@ -412,6 +428,7 @@ include("../config/db.php");
 
 <body>
     <?php display_header(); ?>
+
     <br>
     <h1 class="container"><i class="fas fa-graduation-cap"></i> Start Learning Awesome Algorithms Now!</h1>
 
@@ -428,18 +445,28 @@ include("../config/db.php");
                 <h2 class="info-title sort"><span><i class="fab fa-battle-net"></span></i> Start <span>Learning !!</span></h2>
                 <div class="progress-wrapper">
                     <div class="sort-progress">
-                        <span class="sort-progress-text">46%</span>
+                        <span class="sort-progress-text"><?php echo $_SESSION["sorting_percent"]; ?>%</span>
                     </div>
                 </div>
                 <br class="no-mobile">
 
                 <div class="algo-btns">
-                    <a href="#"><button class="sort-algo-btn">Linear</button></a>
-                    <a href="#"><button class="sort-algo-btn">Bubble</button></a>
-                    <a href="#"><button class="sort-algo-btn">Selection</button></a>
-                    <a href="#"><button class="sort-algo-btn">Insertion</button></a>
-                    <a href="#"><button class="sort-algo-btn">Quick</button></a>
-                    <a href="#"><button class="sort-algo-btn">Merge</button></a>
+                <?php
+                                global $con;
+
+                                $query = "select * from algo where grp_id = 2";
+                                
+                                $run_query = mysqli_query($con, $query);
+                                
+                                while ($row = mysqli_fetch_array($run_query)) {
+                                    $name = $row['name'];
+                                    $algoid = $row['algo_id'];
+                                   $link= './tutorial-content.php?id='.$algoid;
+                                   echo  "<a href='$link'><button class='sort-algo-btn'>$name</button></a>";
+                                }
+                ?>
+
+               
                 </div>
 
                 <a href="sorting.html"><button class="sort-visualize">Visualize</button></a>
@@ -457,18 +484,26 @@ include("../config/db.php");
                 <h2 class="info-title search"><span><i class="fab fa-battle-net"></span></i> Start <span>Learning !!</span></h2>
                 <div class="progress-wrapper">
                     <div class="search-progress">
-                        <span class="search-progress-text">46%</span>
+                        <span class="search-progress-text"><?php echo $_SESSION["searching_percent"]; ?>%</span>
                     </div>
                 </div>
                 <br class="no-mobile">
 
                 <div class="algo-btns">
-                    <a href="#"><button class="search-algo-btn">Linear</button></a>
-                    <a href="#"><button class="search-algo-btn">Bubble</button></a>
-                    <a href="#"><button class="search-algo-btn">Selection</button></a>
-                    <a href="#"><button class="search-algo-btn">Insertion</button></a>
-                    <a href="#"><button class="search-algo-btn">Quick</button></a>
-                    <a href="#"><button class="search-algo-btn">Merge</button></a>
+                <?php
+                                global $con;
+
+                                $query = "select * from algo where grp_id = 3";
+                                
+                                $run_query = mysqli_query($con, $query);
+                                
+                                while ($row = mysqli_fetch_array($run_query)) {
+                                    $name = $row['name'];
+                                    $algoid = $row['algo_id'];
+                                   $link= './tutorial-content.php?id='.$algoid;
+                                   echo  "<a href='$link'><button class='search-algo-btn'>$name</button></a>";
+                                }
+                ?>
                 </div>
 
                 <a href="search.html"><button class="search-visualize">Visualize</button></a>
@@ -486,18 +521,26 @@ include("../config/db.php");
                 <h2 class="info-title pathfinding"><span><i class="fab fa-battle-net"></span></i> Start <span>Learning !!</span></h2>
                 <div class="progress-wrapper">
                     <div class="pathfinding-progress">
-                        <span class="pathfinding-progress-text">46%</span>
+                        <span class="pathfinding-progress-text"><?php echo $_SESSION["pathfinding_percent"]; ?>%</span>
                     </div>
                 </div>
                 <br class="no-mobile">
 
                 <div class="algo-btns">
-                    <a href="#"><button class="pathfinding-algo-btn">Linear</button></a>
-                    <a href="#"><button class="pathfinding-algo-btn">Bubble</button></a>
-                    <a href="#"><button class="pathfinding-algo-btn">Selection</button></a>
-                    <a href="#"><button class="pathfinding-algo-btn">Insertion</button></a>
-                    <a href="#"><button class="pathfinding-algo-btn">Quick</button></a>
-                    <a href="#"><button class="pathfinding-algo-btn">Merge</button></a>
+                <?php
+                                global $con;
+
+                                $query = "select * from algo where grp_id = 1";
+                                
+                                $run_query = mysqli_query($con, $query);
+                                
+                                while ($row = mysqli_fetch_array($run_query)) {
+                                    $name = $row['name'];
+                                    $algoid = $row['algo_id'];
+                                   $link= './tutorial-content.php?id='.$algoid;
+                                   echo  "<a href='$link'><button class='pathfinding-algo-btn'>$name</button></a>";
+                                }
+                ?>
                 </div>
 
                 <a href="pathfinding.html"><button class="pathfinding-visualize">Visualize</button></a>

@@ -51,35 +51,35 @@ function get_pathfinding_algo()
 }
 
 function perecentage_calculator($algo,$algo_array){
-echo $algo;
-print_r($algo_array); 
-echo  "\r\n";
-echo "<pre>";
+// echo $algo;
+// print_r($algo_array); 
+// echo  "\r\n";
+// echo "<pre>";
 if($algo==1){
-    print_r(array_slice($algo_array,0,4));
+    // print_r(array_slice($algo_array,0,4));
     $sub_array=array_slice($algo_array,0,4);
     $sum_of_sub_array=array_sum($sub_array);
-    $percent=($sum_of_sub_array/4)*100;
+    $percent=round(($sum_of_sub_array/4)*100,2);
     $_SESSION["pathfinding_percent"] =  $percent;
-echo $_SESSION["pathfinding_percent"];
+// echo $_SESSION["pathfinding_percent"];
 }elseif($algo==2){
-    print_r(array_slice($algo_array,4,6));
+    // print_r(array_slice($algo_array,4,6));
     $sub_array=array_slice($algo_array,4,6);
     $sum_of_sub_array=array_sum($sub_array);
-    $percent=($sum_of_sub_array/6)*100;
+    $percent=round(($sum_of_sub_array/6)*100,2);
     $_SESSION["sorting_percent"] =  $percent;
-    echo $_SESSION["sorting_percent"];
+    // echo $_SESSION["sorting_percent"];
 }elseif($algo==3){
-    print_r(array_slice($algo_array,10));
+    // print_r(array_slice($algo_array,10));
     $sub_array=array_slice($algo_array,10);
     $sum_of_sub_array=array_sum($sub_array);
-    $percent=($sum_of_sub_array/4)*100;
+    $percent=round(($sum_of_sub_array/4)*100,2);
     $_SESSION["searching_percent"] =  $percent;
-    echo $_SESSION["searching_percent"];
+    // echo $_SESSION["searching_percent"];
 }else{
     echo "ERROR";
 }
 
-echo "</pre>";
+// echo "</pre>";
 
 }
