@@ -19,10 +19,20 @@ include('../config/db.php');
 	<!-- <link rel="stylesheet" href="../css/homepage.css"> -->
 	<link rel="stylesheet" href="../css/tutorial-content.css">
 	<style>
-		@media (max-width: 968px) {
+		.algo-button{
+			width:20%;
+			margin-left: 40%;
+			margin-right: 40%;
+		}
+		@media (max-width: 960px) {
 			/* ul {
 				display: inline-block;
 			} */
+			.algo-button{
+			width:40%;
+			margin-left: 30%;
+			margin-right: 30%;
+		}
 		}
 	</style>
 	<style>
@@ -47,7 +57,11 @@ include('../config/db.php');
 		$result = mysqli_query($con, $sql);
 		while ($row = mysqli_fetch_assoc($result)) {
 			$image = $row['image'];
-			echo '<br><div class="header-container "><div><button class="btn-start invisible tutorial-btn" >Add Bookmark !</button></div>	<div><h1 class="algorithm-text">' . $row["name"] . '';
+			$name= $row["name"];
+			if($name=="Best"){
+				$name="Best First Search ";
+			}
+			echo '<br><div class="header-container "><div><button class="btn-start invisible tutorial-btn" >Add Bookmark !</button></div>	<div><h1 class="algorithm-text">' . $name . '';
 
 
 			if ($row["grp_id"] == 3) {
@@ -142,7 +156,7 @@ include('../config/db.php');
 ' . $row["java"] . ' 
 </pre>
 	<br>
-</div>
+</div>	<br>
  ';
 		}
 	}
@@ -166,20 +180,20 @@ if (isset($_GET['id']) && isset($_SESSION['user_id'])) {
         $array_of_courses = unserialize($value);
         if ($array_of_courses[$name]==1) {
             ?>
-<div> <button id="deletecoursecompletion" onclick=deletecoursecompletion(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn" style="background-color:#ff4d00">Course Completed !</button></div>
+<div> <button id="deletecoursecompletion" onclick=deletecoursecompletion(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn algo-button" style="background-color:#ff4d00">Algorithm Completed !</button></div>
 
 <?php
         } else {
-            ?><div> <button id="addcoursecompletion" onclick=addcoursecompletion(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn">Course Complete !</button></div><?php
+            ?><div> <button id="addcoursecompletion" onclick=addcoursecompletion(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start algo-button tutorial-btn">Algorithm Complete !</button></div><?php
         } ?>
 							
 <?php
     } else {
-        ?><div> <button id="addcoursecompletion" onclick=addcoursecompletion(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start tutorial-btn">Course Complete !</button></div><?php
+        ?><div> <button id="addcoursecompletion" onclick=addcoursecompletion(<?php echo  $idno; ?>,<?php echo $_SESSION['user_id']; ?>) class="btn-start algo-button tutorial-btn">Algorithm Complete !</button></div><?php
     }
 }else{
 	?>
-		<div> <a href="./invalid_access.php"> <button class="btn-start tutorial-btn">Course Completed !</button></a></div>
+		<div> <a href="./invalid_access.php"> <button class="btn-start algo-button tutorial-btn">Algorithm Completed !</button></a></div>
 	<?php
 }
 ?>
@@ -251,7 +265,7 @@ if (isset($_GET['id']) && isset($_SESSION['user_id'])) {
 			}
 			var addcoursecompletion = document.getElementById('addcoursecompletion');
 			addcoursecompletion.style.backgroundColor = "#ff4d00";
-			addcoursecompletion.innerText = "Course Completed !";
+			addcoursecompletion.innerText = "Algorithm Completed !";
 			addcoursecompletion.onclick = function() {
 				deletecoursecompletion(data, user_id);
 			};
@@ -266,7 +280,7 @@ if (isset($_GET['id']) && isset($_SESSION['user_id'])) {
 			}
 			var deletecoursecompletion = document.getElementById('deletecoursecompletion');
 			deletecoursecompletion.style.backgroundColor = "#ffc60b";
-			deletecoursecompletion.innerText = "Course Complete !";
+			deletecoursecompletion.innerText = "Algorithm Complete !";
 			deletecoursecompletion.onclick = function() {
 				addcoursecompletion(data, user_id);
 			};
