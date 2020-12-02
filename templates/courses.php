@@ -353,6 +353,13 @@ include("../config/db.php");
             border: 1px solid var(--pathfinding-color);
         }
 
+        footer {
+
+            position: relative !important;
+        }
+
+
+
         @media(max-width:768px) {
             .course {
                 flex-direction: column;
@@ -497,19 +504,12 @@ include("../config/db.php");
             </div>
         </div>
     </div>
+    <br>
+
+    <?php display_footer(); ?>
 
 
 
-
-    <!-- <div class="info">
-                <div class="progress-wrapper">
-                    <div class="progress"></div>
-                    <span class="progress-text">4/9 Challenges</span>
-                </div>
-                <h2>JAVASCRIPT,HTML AND CSS</h2>
-                <p class="trunc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae officiis placeat quos quo, aut ex quae voluptate libero? Eaque, recusandae.</p>
-                <button class="btn">Next Channel</button>
-            </div> -->
 </body>
 
 </html>

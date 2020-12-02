@@ -284,3 +284,35 @@ Cards
     border-radius: 4px;
     cursor: pointer;
 }
+
+footer {
+    background-color: #1b1b1b;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer h3 {
+    padding: 10px;
+    font-weight: bold;
+}
+
+footer span {
+    color: #66ffff;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media all and (max-width: 968px) {
+    footer {
+        grid-template-columns: auto auto;
+        position: relative;
+    }
+}

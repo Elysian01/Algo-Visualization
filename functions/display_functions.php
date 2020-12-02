@@ -23,9 +23,9 @@ function print_cards($id)
      while ($row = mysqli_fetch_array($run_query)) {
           $name = $row['name'];
           $image = $row['image'];
-          $algo_id=$row['algo_id'];
+          $algo_id = $row['algo_id'];
           // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-          $tutorial_link="./tutorial-content.php?id=".$algo_id;
+          $tutorial_link = "./tutorial-content.php?id=" . $algo_id;
           echo "
           <div class='card'>
             <img class='card-image' src='../images/preview/$image' alt='Sorting image'>
@@ -97,6 +97,8 @@ function display_header()
      }
 
 
+
+
      echo "
           <nav>
           <div class='logo'><a href = 'index.php'>Algo <span>Visualization</span></a></div>
@@ -108,7 +110,7 @@ function display_header()
 
           <ul>
           ";
-
+     echo "<li><a href='index.php'>Home</a></li>";
      if (!isset($_SESSION['email'])) {
           echo "<li><a href='../templates/authentication.php'>Login</a></li>";
      }
@@ -164,16 +166,12 @@ function display_header()
 
      echo "</ul></nav>";
 }
-function display_footer(){
-  echo ' <div class="grid-container">
-     <div class="inner-container">
-     Ansh Mitesh Chhadva
-     </div>
-     <div class="inner-container">
-     Gladina Raymond
-     </div>
-     <div class="inner-container">
-     Abhishek Gupta 
-     </div>
-     </div>';
+function display_footer()
+{
+     echo '<footer>
+     <h3>Made By: </h3>
+     <h3><a  href="https://www.linkedin.com/in/abhishek-gupta-a745221a0/">Abhishek <span>Gupta </span></a></h3>
+     <h3><a href="https://www.linkedin.com/in/ansh-chhadva-ab3902183/">Ansh <span>Chhadva</span></a></h3>
+     <h3><a  href="https://www.linkedin.com/in/gladina-raymond/">Gladina <span>Raymond</span></a></h3>
+     </footer>';
 }

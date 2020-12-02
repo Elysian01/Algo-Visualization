@@ -65,6 +65,7 @@ include("../config/db.php");
           </div>
      </div>
 
+     <?php display_footer(); ?>
 </body>
 
 </html>
