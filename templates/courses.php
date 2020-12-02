@@ -229,7 +229,7 @@ include("../config/db.php");
         }
 
         .sort-algo-btn {
-            padding: 10px 14px;
+            padding: 10px 15px;
             margin: 4px;
             margin-top: 8px;
             border-radius: 30px;
@@ -243,7 +243,7 @@ include("../config/db.php");
         }
 
         .search-algo-btn {
-            padding: 10px 14px;
+            padding: 10px 15px;
             margin: 4px;
             margin-top: 8px;
             border-radius: 30px;
@@ -257,7 +257,7 @@ include("../config/db.php");
         }
 
         .pathfinding-algo-btn {
-            padding: 10px 14px;
+            padding: 10px 15px;
             margin: 4px;
             margin-top: 8px;
             border-radius: 30px;
@@ -393,7 +393,13 @@ include("../config/db.php");
             .no-mobile {
                 display: none;
             }
-        }
+
+            .pathfinding-algo-btn,
+            .search-algo-btn,
+            .sort-algo-btn {
+                padding: 10px 12px;
+                margin: 3px;
+            }
     </style>
 </head>
 
