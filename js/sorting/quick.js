@@ -43,7 +43,7 @@ function quick_partition(start, end) {
     div_update(bars[i - 1], random_array[i - 1], "red"); //Height update
 
     for (var t = start; t <= i; t++) {
-        div_updates(bars[t], random_array[t], "green"); //Color update
+        div_updates(bars[t], random_array[t], "orange"); //Color update
     }
 
     return i - 1; //return the position of the pivot
