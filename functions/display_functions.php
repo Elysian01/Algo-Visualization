@@ -1,5 +1,5 @@
 <?php
- 
+
 session_start();
 include("helper_functions.php");
 
@@ -48,14 +48,14 @@ function print_bookmark_cards($id)
      global $con;
 
      $query = "select * from algo where algo_id = $id";
-$sesion_user_id=$_SESSION['user_id'];
+     $sesion_user_id = $_SESSION['user_id'];
 
      $run_query = mysqli_query($con, $query);
 
      while ($row = mysqli_fetch_array($run_query)) {
           $name = $row['name'];
           $image = $row['image'];
-          $grp_id=$row['grp_id'];
+          $grp_id = $row['grp_id'];
           if ($grp_id == 1) {
                $link = "./pathfinding.html";
           } elseif ($grp_id == 2) {
@@ -63,9 +63,9 @@ $sesion_user_id=$_SESSION['user_id'];
           } else {
                $link = "./search.html";
           }
-     
+
           // echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-$tutorial_link="./tutorial-content.php?id=".$id;
+          $tutorial_link = "./tutorial-content.php?id=" . $id;
           echo "
           <div class='card'>
             <img class='card-image' src='../images/preview/$image' alt='Sorting image'>
@@ -147,12 +147,12 @@ function display_header()
 
      if (isset($_SESSION['email'])) {
           echo "
-               <li><a href='#'>Notes</a></li>
+               <li><a href='../templates/courses.php'>Course</a></li>
                <li><a href='../templates/bookmark.php'>Bookmarks</a></li>
                ";
      } else {
           echo "
-               <li><a href='../templates/invalid_access.php'>Notes</a></li>
+               <li><a href='../templates/invalid_access.php'>Course</a></li>
                <li><a href='../templates/invalid_access.php'>Bookmarks</a></li>
                ";
      }
