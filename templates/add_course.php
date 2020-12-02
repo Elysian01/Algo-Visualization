@@ -2,7 +2,7 @@
 include("../config/db.php");
 
 // $array_of_courses = array();129
-$array_of_courses=array('BFS'=>0,'DFS'=>0,'Dijkstra'=>0,'A star'=>0,'Bubble'=>0,'Selection'=>0,'Insertion'=>0,'Merge'=>0,'Quick'=>0,'Heap'=>0,'Linear'=>0,'Jump'=>0,'Binary'=>0,'Exponential'=>0,);
+$array_of_courses=array('BFS'=>0,'DFS'=>0,'Dijkstra'=>0,'A star'=>0,'Best'=>0,'Bubble'=>0,'Selection'=>0,'Insertion'=>0,'Merge'=>0,'Quick'=>0,'Heap'=>0,'Linear'=>0,'Jump'=>0,'Binary'=>0,'Exponential'=>0,);
 
 if (isset($_GET['id']) && isset($_GET['bm'])) {
     $users_id = $_GET['id'];
