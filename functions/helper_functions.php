@@ -59,7 +59,7 @@ if($algo==1){
     // print_r(array_slice($algo_array,0,4));
     $sub_array=array_slice($algo_array,0,4);
     $sum_of_sub_array=array_sum($sub_array);
-    $percent=round(($sum_of_sub_array/4)*100,2);
+    $percent=round(($sum_of_sub_array/5)*100,2);
     $_SESSION["pathfinding_percent"] =  $percent;
 // echo $_SESSION["pathfinding_percent"];
 }elseif($algo==2){
