@@ -15,6 +15,12 @@ include('../config/db.php');
   <link rel="stylesheet" href="../css/homepage.css">
   <link rel="icon" href="../images/logo.png">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <style>
+    footer {
+      position: relative !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -28,7 +34,6 @@ include('../config/db.php');
   </div>
   <?php display_footer(); ?>
   <script>
-    // console.log(document.getElementById("card-decks"))
     loadData();
 
     function loadData() {

@@ -7,25 +7,28 @@ include("../config/db.php");
 <html lang="en">
 <?php
 if (isset($_SESSION['user_id'])) {
-$users_id = $_SESSION['user_id'];
-$sql = "SELECT * FROM course where user_id=$users_id 	  ";
+    $users_id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM course where user_id=$users_id ";
     $result = mysqli_query($con, $sql);
+
     if (mysqli_num_rows($result) > 0) {
         $rows = mysqli_fetch_assoc($result);
         $value = $rows['course_completion'];
 
         $a = unserialize($value);
-   perecentage_calculator(1, $a);
+        perecentage_calculator(1, $a);
         perecentage_calculator(2, $a);
         perecentage_calculator(3, $a);
-    }else{
+    } else {
 
-        $_SESSION["pathfinding_percent"]=0;
-        $_SESSION["sorting_percent"]=0;
-        $_SESSION["searching_percent"]=0;
-    }}
+        $_SESSION["pathfinding_percent"] = 0;
+        $_SESSION["sorting_percent"] = 0;
+        $_SESSION["searching_percent"] = 0;
+    }
+}
 
-    ?>
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -188,7 +191,7 @@ $sql = "SELECT * FROM course where user_id=$users_id 	  ";
             left: 0;
             height: 8px;
             width: <?php echo $_SESSION["pathfinding_percent"]; ?>%;
-            
+
         }
 
         .sort-progress-text {
@@ -362,7 +365,7 @@ $sql = "SELECT * FROM course where user_id=$users_id 	  ";
 
         .search-visualize:hover {
             background-color: transparent;
-            color: var(--sort-color);
+            color: var(--search-color);
             transform: scale(1.2);
             border: 1px solid var(--search-color);
         }
@@ -456,22 +459,22 @@ $sql = "SELECT * FROM course where user_id=$users_id 	  ";
                 <br class="no-mobile">
 
                 <div class="algo-btns">
-                <?php
-                                global $con;
+                    <?php
+                    global $con;
 
-                                $query = "select * from algo where grp_id = 2";
-                                
-                                $run_query = mysqli_query($con, $query);
-                                
-                                while ($row = mysqli_fetch_array($run_query)) {
-                                    $name = $row['name'];
-                                    $algoid = $row['algo_id'];
-                                   $link= './tutorial-content.php?id='.$algoid;
-                                   echo  "<a href='$link'><button class='sort-algo-btn'>$name</button></a>";
-                                }
-                ?>
+                    $query = "select * from algo where grp_id = 2";
 
-               
+                    $run_query = mysqli_query($con, $query);
+
+                    while ($row = mysqli_fetch_array($run_query)) {
+                        $name = $row['name'];
+                        $algoid = $row['algo_id'];
+                        $link = './tutorial-content.php?id=' . $algoid;
+                        echo  "<a href='$link'><button class='sort-algo-btn'>$name</button></a>";
+                    }
+                    ?>
+
+
                 </div>
 
                 <a href="sorting.html"><button class="sort-visualize">Visualize</button></a>
@@ -495,20 +498,20 @@ $sql = "SELECT * FROM course where user_id=$users_id 	  ";
                 <br class="no-mobile">
 
                 <div class="algo-btns">
-                <?php
-                                global $con;
+                    <?php
+                    global $con;
 
-                                $query = "select * from algo where grp_id = 3";
-                                
-                                $run_query = mysqli_query($con, $query);
-                                
-                                while ($row = mysqli_fetch_array($run_query)) {
-                                    $name = $row['name'];
-                                    $algoid = $row['algo_id'];
-                                   $link= './tutorial-content.php?id='.$algoid;
-                                   echo  "<a href='$link'><button class='search-algo-btn'>$name</button></a>";
-                                }
-                ?>
+                    $query = "select * from algo where grp_id = 3";
+
+                    $run_query = mysqli_query($con, $query);
+
+                    while ($row = mysqli_fetch_array($run_query)) {
+                        $name = $row['name'];
+                        $algoid = $row['algo_id'];
+                        $link = './tutorial-content.php?id=' . $algoid;
+                        echo  "<a href='$link'><button class='search-algo-btn'>$name</button></a>";
+                    }
+                    ?>
                 </div>
 
                 <a href="search.html"><button class="search-visualize">Visualize</button></a>
@@ -532,20 +535,20 @@ $sql = "SELECT * FROM course where user_id=$users_id 	  ";
                 <br class="no-mobile">
 
                 <div class="algo-btns">
-                <?php
-                                global $con;
+                    <?php
+                    global $con;
 
-                                $query = "select * from algo where grp_id = 1";
-                                
-                                $run_query = mysqli_query($con, $query);
-                                
-                                while ($row = mysqli_fetch_array($run_query)) {
-                                    $name = $row['name'];
-                                    $algoid = $row['algo_id'];
-                                   $link= './tutorial-content.php?id='.$algoid;
-                                   echo  "<a href='$link'><button class='pathfinding-algo-btn'>$name</button></a>";
-                                }
-                ?>
+                    $query = "select * from algo where grp_id = 1";
+
+                    $run_query = mysqli_query($con, $query);
+
+                    while ($row = mysqli_fetch_array($run_query)) {
+                        $name = $row['name'];
+                        $algoid = $row['algo_id'];
+                        $link = './tutorial-content.php?id=' . $algoid;
+                        echo  "<a href='$link'><button class='pathfinding-algo-btn'>$name</button></a>";
+                    }
+                    ?>
                 </div>
 
                 <a href="pathfinding.html"><button class="pathfinding-visualize">Visualize</button></a>

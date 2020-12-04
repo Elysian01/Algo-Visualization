@@ -13,6 +13,11 @@ include("../config/db.php");
      <link rel="stylesheet" href="../css/homepage.css">
      <link rel="icon" href="../images/logo.png">
      <title>Algo Visualization</title>
+     <style>
+          footer {
+               position: relative !important;
+          }
+     </style>
 </head>
 
 <body>
@@ -64,6 +69,9 @@ include("../config/db.php");
                <br>
           </div>
      </div>
+     <br>
+     <br>
+     <br>
 
      <?php display_footer(); ?>
 </body>
